@@ -160,6 +160,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 492304515}
   m_RootOrder: 2
+--- !u!1 &82859546
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 82859547}
+  m_Layer: 0
+  m_Name: SunMarker1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &82859547
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 82859546}
+  m_LocalRotation: {x: .00617059274, y: .707079947, z: -.00617059367, w: .707079828}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
 --- !u!1 &331528356
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,7 +265,7 @@ Transform:
   - {fileID: 516640986}
   - {fileID: 513942236}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!143 &331528361
 CharacterController:
   m_ObjectHideFlags: 0
@@ -290,6 +317,66 @@ MonoBehaviour:
   move_speed: .400000006
   rotate_speed: .400000006
   audiosource: {fileID: 513942235}
+--- !u!1 &403586880
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 403586882}
+  - 108: {fileID: 403586881}
+  m_Layer: 0
+  m_Name: Point light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!108 &403586881
+Light:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 403586880}
+  m_Enabled: 1
+  serializedVersion: 6
+  m_Type: 2
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_Range: 10
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_Strength: 1
+    m_Bias: .0500000007
+    m_NormalBias: .400000006
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 4
+  m_BounceIntensity: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+  m_AreaSize: {x: 1, y: 1}
+--- !u!4 &403586882
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 403586880}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 6.69999981, z: 10.4200001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
 --- !u!1 &492304514
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,7 +407,7 @@ Transform:
   - {fileID: 81077571}
   - {fileID: 609855364}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!1 &513942234
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,6 +418,7 @@ GameObject:
   - 4: {fileID: 513942236}
   - 82: {fileID: 513942235}
   - 164: {fileID: 513942237}
+  - 114: {fileID: 513942238}
   m_Layer: 0
   m_Name: audiosource
   m_TagString: Untagged
@@ -443,6 +531,23 @@ AudioReverbFilter:
   m_LFReference: 250
   m_ReflectionsDelay: 0
   m_ReverbPreset: 0
+--- !u!114 &513942238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 513942234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c51429ce7b77b44786ab16108f595b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetverb: {fileID: 609855368}
+  send_name: BeepVerbSend
+  sendlevel: 0
+  mixer: {fileID: 24100000, guid: bf4073f7d53547d418c046fb6af86042, type: 2}
+  sqrmag: 0
+  distance: 0
 --- !u!1 &516640981
 GameObject:
   m_ObjectHideFlags: 0
@@ -628,13 +733,14 @@ GameObject:
   - 167: {fileID: 609855365}
   - 114: {fileID: 609855366}
   - 65: {fileID: 609855367}
+  - 114: {fileID: 609855368}
   m_Layer: 0
   m_Name: verbzone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &609855364
 Transform:
   m_ObjectHideFlags: 0
@@ -642,7 +748,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 609855363}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9, y: -3.20000005, z: -13.5}
+  m_LocalPosition: {x: -9, y: -3.20000005, z: -14.6000004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 492304515}
@@ -654,8 +760,8 @@ AudioReverbZone:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 609855363}
   m_Enabled: 0
-  m_MinDistance: 4.26000023
-  m_MaxDistance: 14.3800001
+  m_MinDistance: .0900000036
+  m_MaxDistance: 24.1499996
   m_ReverbPreset: 6
   m_Room: -1000
   m_RoomHF: -300
@@ -692,10 +798,24 @@ BoxCollider:
   m_GameObject: {fileID: 609855363}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 4.23000002, y: 16, z: 12.3999996}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &609855368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 609855363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d0e2c36e9d8fd84c8d43e0687e87d63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixer: {fileID: 24100000, guid: bf4073f7d53547d418c046fb6af86042, type: 2}
+  recieve_name: 
+  bounds: 5
 --- !u!1 &1165977898
 GameObject:
   m_ObjectHideFlags: 0
@@ -798,7 +918,7 @@ Transform:
   m_Children:
   - {fileID: 528048081}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!114 &1174478671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -824,10 +944,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c51429ce7b77b44786ab16108f595b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  targetverb: {fileID: 609855368}
+  send_name: BirdVerbSend
   sendlevel: 0
-  mixer: {fileID: 0}
-  parameter_name: 
+  mixer: {fileID: 24100000, guid: bf4073f7d53547d418c046fb6af86042, type: 2}
+  sqrmag: 0
+  distance: 0
 --- !u!1 &1212573768
 GameObject:
   m_ObjectHideFlags: 0
@@ -910,6 +1032,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1903651347}
   - 108: {fileID: 1903651346}
+  - 114: {fileID: 1903651348}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -955,12 +1078,34 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1903651345}
-  m_LocalRotation: {x: .408217937, y: -.234569728, z: .109381676, w: .875426054}
+  m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106709}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
+--- !u!114 &1903651348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1903651345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85d4ef0f3019441439e74bad64b90d27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ambientlight: {fileID: 0}
+  marker1: {fileID: 82859546}
+  marker2: {fileID: 2076139866}
+  startrot: {x: 0, y: 0, z: 0, w: 0}
+  endrot: {x: 0, y: 0, z: 0, w: 0}
+  speed: .100000001
+  starttime: 0
+  journeylength: 0
+  moonmode: 0
+  suncolor: {r: 1, g: 1, b: 1, a: 0}
+  mooncolor: {r: .283263445, g: .264868081, b: .507352948, a: 0}
 --- !u!1 &1998067240
 GameObject:
   m_ObjectHideFlags: 0
@@ -997,7 +1142,7 @@ AudioReverbFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1998067240}
-  m_Enabled: 1
+  m_Enabled: 0
   m_DryLevel: 0
   m_Room: -10000
   m_RoomHF: -10000
@@ -1173,4 +1318,31 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
+--- !u!1 &2076139866
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2076139867}
+  m_Layer: 0
+  m_Name: SunMarker2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2076139867
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2076139866}
+  m_LocalRotation: {x: .707106709, y: -1.15202326e-07, z: -.707106829, w: -1.15202312e-07}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0

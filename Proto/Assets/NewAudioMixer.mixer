@@ -14,10 +14,10 @@ AudioMixerController:
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
   m_ExposedParameters:
-  - guid: e0848cbf423d1d549b0b903908b757dd
-    name: BeepVerbSend
   - guid: de27ed1630333d9419b95d29effd370b
     name: BirdVerbSend
+  - guid: e0848cbf423d1d549b0b903908b757dd
+    name: BeepVerbSend
   m_AudioMixerGroupViews:
   - guids:
     - e16494d7855dba04395ced6ac17eca90
