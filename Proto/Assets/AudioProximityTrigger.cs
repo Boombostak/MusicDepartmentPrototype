@@ -4,7 +4,7 @@ using UnityEngine.Audio;
 
 public class AudioProximityTrigger : MonoBehaviour {
 
-    public AudioReverbArea targetverb;
+    public AudioReverbVolume targetverb;
     public string send_name;
     public float sendlevel;
     public AudioMixer mixer;

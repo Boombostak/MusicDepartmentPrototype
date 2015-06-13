@@ -29,7 +29,7 @@ public class BirdCallTrigger : MonoBehaviour {
     public void PlayBirdCall()
     {
         audiosource.pitch = 1 + Random.Range(-pitchoffset, pitchoffset);
-        audiosource.volume = 0.5f + Random.RandomRange(-volumeoffset, volumeoffset);
+        audiosource.volume = 0.5f + Random.Range(-volumeoffset, volumeoffset);
         audiosource.Play();
         countup = 0;
         currentdelay = basedelay + Random.Range(-delayoffset, delayoffset);
