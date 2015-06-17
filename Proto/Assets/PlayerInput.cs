@@ -14,15 +14,18 @@ public class PlayerInput : MonoBehaviour {
     
     // Use this for initialization
 	void Start () {
+        this.GetComponent<MeshRenderer>().material.color = new Color(Random.Range(0, 255), Random.Range(0, 255), Random.Range(0, 255), 60);
 	
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        Vector3 forward = Input.GetAxis("Vertical") * transform.TransformDirection(Vector3.forward) * move_speed;
-        Vector3 sides2side = Input.GetAxis("Horizontal") * transform.TransformDirection(Vector3.right) * move_speed;
-        character_controller.Move(forward + sides2side);
-        character_controller.SimpleMove(Physics.gravity);
+        Vector3 forward = Input.GetAxis("Vertical") * transform.TransformDirection(0,0,1) * move_speed;
+        //forward.y = 0; //clamps player to current y-axis
+        Vector3 side2side = Input.GetAxis("Horizontal") * transform.TransformDirection(Vector3.right) * move_speed;
+        //side2side.y = 0; //clamps player to current y-axis
+        character_controller.Move(forward + side2side);
+        //character_controller.SimpleMove(Physics.gravity); //disable for observer cam
 
         if (Input.GetButtonDown("Fire1"))
         {
