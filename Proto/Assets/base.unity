@@ -568,7 +568,7 @@ GameObject:
   - 65: {fileID: 452598975}
   - 114: {fileID: 452598974}
   m_Layer: 0
-  m_Name: bigverbzone2
+  m_Name: bigverbzone2B
   m_TagString: Untagged
   m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -598,7 +598,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: bf4073f7d53547d418c046fb6af86042, type: 2}
-  recieve_name: 
+  send_name: beepb
   bounds: 9.85999966
   distanceToPlayer: 0
   player: {fileID: 0}
@@ -786,7 +786,7 @@ GameObject:
   - 65: {fileID: 609855367}
   - 114: {fileID: 609855368}
   m_Layer: 0
-  m_Name: smallverbzone
+  m_Name: smallverbzoneC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -865,7 +865,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: bf4073f7d53547d418c046fb6af86042, type: 2}
-  recieve_name: 
+  send_name: beepc
   bounds: 5
   distanceToPlayer: 0
   player: {fileID: 0}
@@ -1311,7 +1311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetverb: {fileID: 609855368}
-  send_name: BirdSmall
+  send_name: birdc
   sendlevel: 0
   mixer: {fileID: 24100000, guid: bf4073f7d53547d418c046fb6af86042, type: 2}
   sqrmag: 0
@@ -1328,7 +1328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetverb: {fileID: 1888892507}
-  send_name: BirdBig
+  send_name: birda
   sendlevel: 0
   mixer: {fileID: 24100000, guid: bf4073f7d53547d418c046fb6af86042, type: 2}
   sqrmag: 0
@@ -1345,7 +1345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetverb: {fileID: 452598974}
-  send_name: BirdBig
+  send_name: birdb
   sendlevel: 0
   mixer: {fileID: 24100000, guid: bf4073f7d53547d418c046fb6af86042, type: 2}
   sqrmag: 0
@@ -2204,7 +2204,7 @@ GameObject:
   - 65: {fileID: 1888892508}
   - 114: {fileID: 1888892507}
   m_Layer: 0
-  m_Name: bigverbzone
+  m_Name: bigverbzoneA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2234,7 +2234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: bf4073f7d53547d418c046fb6af86042, type: 2}
-  recieve_name: 
+  send_name: beepa
   bounds: 5
   distanceToPlayer: 0
   player: {fileID: 0}

@@ -5,7 +5,7 @@ using UnityEngine.Audio;
 public class AudioReverbVolume : MonoBehaviour {
 
     public AudioMixer mixer;
-    public string recieve_name;
+    public string send_name;
     public float bounds;
     public float distanceToPlayer;
     public GameObject player;

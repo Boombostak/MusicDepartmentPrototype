@@ -18,10 +18,10 @@ public class AudioProximityTrigger : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        MixReverb(this.transform.position, targetverb.transform.position, send_name, targetverb.recieve_name);
+        MixReverb(this.transform.position, targetverb.transform.position, send_name);
 	}
 
-    void MixReverb(Vector3 origin, Vector3 target, string send_name, string recieve_name)
+    void MixReverb(Vector3 origin, Vector3 target, string send_name)
     {
         
         sqrmag = Vector3.SqrMagnitude(target - origin);

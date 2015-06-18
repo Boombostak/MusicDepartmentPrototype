@@ -50,9 +50,7 @@ GameObject:
   - 4: {fileID: 495188}
   - 82: {fileID: 8273274}
   - 164: {fileID: 16478258}
-  - 114: {fileID: 11447748}
-  - 114: {fileID: 11494574}
-  - 114: {fileID: 11436662}
+  - 114: {fileID: 11479296}
   m_Layer: 8
   m_Name: audiosource
   m_TagString: Untagged
@@ -278,23 +276,6 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 178932}
   m_Enabled: 1
---- !u!114 &11436662
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 167062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c51429ce7b77b44786ab16108f595b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetverb: {fileID: 0}
-  send_name: BeepBig
-  sendlevel: 0
-  mixer: {fileID: 24100000, guid: bf4073f7d53547d418c046fb6af86042, type: 2}
-  sqrmag: 0
-  distance: 0
 --- !u!114 &11445314
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -306,23 +287,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8388d46a30cd6d4478d94e34d3c51fe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11447748
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 167062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c51429ce7b77b44786ab16108f595b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetverb: {fileID: 0}
-  send_name: BeepSmall
-  sendlevel: 0
-  mixer: {fileID: 24100000, guid: bf4073f7d53547d418c046fb6af86042, type: 2}
-  sqrmag: 0
-  distance: 0
 --- !u!114 &11464110
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -342,6 +306,20 @@ MonoBehaviour:
   minimumY: -90
   maximumY: 90
   frameCounter: 3
+--- !u!114 &11479296
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 167062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 204b9a1002620bb499c1d9c15db161f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumes: []
+  triggers: []
+  mixer: {fileID: 24100000, guid: bf4073f7d53547d418c046fb6af86042, type: 2}
 --- !u!114 &11480208
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -368,23 +346,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNumber: 0
---- !u!114 &11494574
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 167062}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c51429ce7b77b44786ab16108f595b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetverb: {fileID: 0}
-  send_name: BeepBig
-  sendlevel: 0
-  mixer: {fileID: 24100000, guid: bf4073f7d53547d418c046fb6af86042, type: 2}
-  sqrmag: 0
-  distance: 0
 --- !u!114 &11496720
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -469,7 +430,7 @@ AudioReverbFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 167062}
-  m_Enabled: 1
+  m_Enabled: 0
   m_DryLevel: 0
   m_Room: -10000
   m_RoomHF: -10000
@@ -533,6 +494,11 @@ Prefab:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 0}
+      propertyPath: mixer
+      value: 
+      objectReference: {fileID: 24100000, guid: bf4073f7d53547d418c046fb6af86042,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 111676}
