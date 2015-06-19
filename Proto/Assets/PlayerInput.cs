@@ -14,8 +14,6 @@ public class PlayerInput : MonoBehaviour {
     
     // Use this for initialization
 	void Start () {
-        this.GetComponent<MeshRenderer>().material.color = new Color(Random.Range(0, 255), Random.Range(0, 255), Random.Range(0, 255), 60);
-	
 	}
 	
 	// Update is called once per frame
@@ -35,7 +33,7 @@ public class PlayerInput : MonoBehaviour {
 
         if (Input.GetButtonDown("Jump"))
         {
-            micclip = Microphone.Start(MicTest.device,false,10,44100);
+            micclip = Microphone.Start(MicTest.device,false,10,11025);
         }
 
         if (Input.GetButtonUp("Jump"))

@@ -12,8 +12,7 @@ public class MultiPlayerMover : Photon.MonoBehaviour
 
     void Start()
     {
-
-        if (photonView.isMine)
+        if (photonView.isMine && gameObject.tag =="Player")
         {
             GetComponent<PlayerInput>().enabled = true;
             GetComponent<PlayerNetworking>().enabled = true;
