@@ -15,7 +15,6 @@ public class MultiPlayerMover : Photon.MonoBehaviour
         if (photonView.isMine && gameObject.tag =="Player")
         {
             GetComponent<PlayerInput>().enabled = true;
-            GetComponent<PlayerNetworking>().enabled = true;
             GetComponent<SmoothMouseLook>().enabled = true;
             GetComponent<CharacterController>().enabled = true;
             foreach (Camera cam in GetComponentsInChildren<Camera>())

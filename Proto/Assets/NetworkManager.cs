@@ -11,6 +11,7 @@ public class NetworkManager : MonoBehaviour {
     [SerializeField] Camera lobbyCam;
     public GameObject[] spawnpoints;
     public int playerCount;
+    public static int numberOfPlayers;
 
     // Use this for initialization
     void Start()
@@ -35,9 +36,16 @@ public class NetworkManager : MonoBehaviour {
 
     void OnJoinedRoom()
     {
-        playerCount = PlayerNetworking.numberOfPlayers;
         PhotonNetwork.Instantiate("player", spawnpoints[playerCount].transform.position, Quaternion.identity, 0);
         lobbyCam.gameObject.SetActive(false);
+        playerCount = CountPlayers();
+        Debug.Log("playercount:" + playerCount);
+    }
+
+    public int CountPlayers()
+    {
+        numberOfPlayers = PhotonNetwork.FindGameObjectsWithComponent(typeof(PlayerInput)).Count;
+        return numberOfPlayers;
     }
 
     // Update is called once per frame
