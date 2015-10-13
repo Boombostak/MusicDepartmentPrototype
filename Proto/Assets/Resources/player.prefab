@@ -48,9 +48,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 495188}
-  - 82: {fileID: 8273274}
-  - 164: {fileID: 16478258}
-  - 114: {fileID: 11479296}
+  - 82: {fileID: 8293670}
+  - 114: {fileID: 11473878}
   m_Layer: 8
   m_Name: audiosource
   m_TagString: Untagged
@@ -96,7 +95,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 111676}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.53210449, y: .899999976, z: -17.0121765}
+  m_LocalPosition: {x: -44.4230499, y: 73.2932663, z: -187.05925}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 467716}
@@ -156,6 +155,7 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
+  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -199,7 +199,7 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 178932}
   m_Enabled: 1
---- !u!82 &8273274
+--- !u!82 &8293670
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -207,14 +207,14 @@ AudioSource:
   m_GameObject: {fileID: 167062}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24344972, guid: bf4073f7d53547d418c046fb6af86042,
-    type: 2}
+  OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f6889daa82f200a41971d2710d51d627, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: .600000024
+  m_PlayOnAwake: 1
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
+  Spatialize: 1
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -243,7 +243,7 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -318,7 +318,7 @@ MonoBehaviour:
   minimumY: -90
   maximumY: 90
   frameCounter: 3
---- !u!114 &11479296
+--- !u!114 &11473878
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -326,12 +326,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 167062}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 204b9a1002620bb499c1d9c15db161f6, type: 3}
+  m_Script: {fileID: -1005375846, guid: cfc431489b1c841678e3b613e17c9b29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumes: []
-  triggers: []
-  mixer: {fileID: 24100000, guid: bf4073f7d53547d418c046fb6af86042, type: 2}
+  eAttenMode_: 0
+  eSourcePanner_: 0
+  eRoomPanner_: 0
+  eInputChannel_: 0
+  fMinimumDistance_: 1
+  fMaximumDistance_: 10000
+  fFactor_: 1
+  fDopplerIntensity_: .100000001
+  customRolloffGain_: 1
+  roomObjectId_: 0
+  autoRoomId_: 0
+  bMaxMute_: 0
+  bDoppler_: 0
+  bRoom_: 1
+  bRoomAutoDetect_: 1
+  bSpatialize_: 1
+  erRoomObject_: {fileID: 0}
 --- !u!114 &11480208
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -367,6 +381,7 @@ MonoBehaviour:
   ownershipTransfer: 0
   ObservedComponents:
   - {fileID: 11445314}
+  - {fileID: 495188}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1
@@ -386,7 +401,7 @@ MonoBehaviour:
   move_speed: .400000006
   rotate_speed: .400000006
   beepclip: {fileID: 8300000, guid: f6889daa82f200a41971d2710d51d627, type: 3}
-  source: {fileID: 8273274}
+  source: {fileID: 8293670}
   micclip: {fileID: 0}
 --- !u!124 &12435190
 Behaviour:
@@ -424,29 +439,6 @@ CharacterController:
   m_SkinWidth: .0799999982
   m_MinMoveDistance: .00100000005
   m_Center: {x: 0, y: 0, z: 0}
---- !u!164 &16478258
-AudioReverbFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 167062}
-  m_Enabled: 0
-  m_DryLevel: 0
-  m_Room: -10000
-  m_RoomHF: -10000
-  m_RoomRolloff: 0
-  m_DecayTime: 1
-  m_DecayHFRatio: 1
-  m_ReflectionsLevel: -2602
-  m_ReverbLevel: 200
-  m_ReverbDelay: .0109999999
-  m_Diffusion: 0
-  m_Density: 0
-  m_HFReference: 5000
-  m_RoomLF: 0
-  m_LFReference: 250
-  m_ReflectionsDelay: 0
-  m_ReverbPreset: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -456,7 +448,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: ObservedComponents.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: synchronization
@@ -469,10 +461,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: ObservedComponents.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 495188}
     - target: {fileID: 0}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Layer

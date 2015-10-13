@@ -31,7 +31,7 @@ public class MultiPlayerMover : Photon.MonoBehaviour
         while (true)
         {
             transform.position = Vector3.Lerp(transform.position, position, Time.deltaTime * smoothing);
-            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * smoothing);
+            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * smoothing); //Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * smoothing);
             yield return null;
         }
     }
