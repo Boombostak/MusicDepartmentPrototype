@@ -4,7 +4,7 @@ using UnityEngine.Audio;
 
 public class ReverbCalculator : MonoBehaviour {
 
-    public GameObject target;
+    public AudioSource target;
     public AudioMixer mixer;
 	public AudioMixerSnapshot[] snapshots;
 	public GameObject[] nodes;
@@ -12,7 +12,7 @@ public class ReverbCalculator : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        target = this.gameObject;
+        target = this.GetComponentInChildren<AudioSource>();
         SetUp();
 	}
 	
