@@ -14,5 +14,15 @@ public class ReverbCalculatorEditor : Editor {
         {
             myScript.SetUp();
         }
+
+        if (GUILayout.Button("Set these snapshots to static WARNING"))
+        {
+            myScript.SetMaster();
+        }
+
+        if (GUILayout.Button("Get these snapshots from static WARNING"))
+        {
+            myScript.GetMaster();
+        }
     }
 }

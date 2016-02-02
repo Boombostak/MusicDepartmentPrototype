@@ -9,6 +9,7 @@ public class ReverbCalculator : MonoBehaviour {
 	public AudioMixerSnapshot[] snapshots;
 	public GameObject[] nodes;
 	public float[] closenesses;
+    public static AudioMixerSnapshot[] masterSnapshots;
 
 	// Use this for initialization
 	void Start () {
@@ -39,5 +40,15 @@ public class ReverbCalculator : MonoBehaviour {
         {
             nodes[i] = GameObject.Find("reverbManager").transform.FindChild("nodesGO").transform.GetChild(i).gameObject;
         }
+    }
+
+    public void SetMaster()
+    {
+        masterSnapshots = snapshots;
+    }
+
+    public void GetMaster()
+    {
+        snapshots = masterSnapshots;
     }
 }

@@ -1,0 +1,170 @@
+Initialize engine version: 5.3.1f1 (cc9cbbcc37b4)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: Intel(R) HD Graphics 530 (ID=0x191b)
+    Vendor:   Intel
+    VRAM:     128 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\N\Documents\GitHub\MusicDepartmentPrototype\Proto\builds\feb1\feb1_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\N\Documents\GitHub\MusicDepartmentPrototype\Proto\builds\feb1\feb1_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\N\Documents\GitHub\MusicDepartmentPrototype\Proto\builds\feb1\feb1_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\N\Documents\GitHub\MusicDepartmentPrototype\Proto\builds\feb1\feb1_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\N\Documents\GitHub\MusicDepartmentPrototype\Proto\builds\feb1\feb1_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\N\Documents\GitHub\MusicDepartmentPrototype\Proto\builds\feb1\feb1_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\N\Documents\GitHub\MusicDepartmentPrototype\Proto\builds\feb1\feb1_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\N\Documents\GitHub\MusicDepartmentPrototype\Proto\builds\feb1\feb1_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\N\Documents\GitHub\MusicDepartmentPrototype\Proto\builds\feb1\feb1_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\N\Documents\GitHub\MusicDepartmentPrototype\Proto\builds\feb1\feb1_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\N\Documents\GitHub\MusicDepartmentPrototype\Proto\builds\feb1\feb1_Data\Managed\Photon3Unity3D.dll (this message is harmless)
+Loading C:\Users\N\Documents\GitHub\MusicDepartmentPrototype\Proto\builds\feb1\feb1_Data\Managed\Photon3Unity3D.dll into Unity Child Domain
+Platform assembly: C:\Users\N\Documents\GitHub\MusicDepartmentPrototype\Proto\builds\feb1\feb1_Data\Managed\TBE_Components.dll (this message is harmless)
+Loading C:\Users\N\Documents\GitHub\MusicDepartmentPrototype\Proto\builds\feb1\feb1_Data\Managed\TBE_Components.dll into Unity Child Domain
+- Completed reload, in  0.486 seconds
+Platform assembly: C:\Users\N\Documents\GitHub\MusicDepartmentPrototype\Proto\builds\feb1\feb1_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\N\Documents\GitHub\MusicDepartmentPrototype\Proto\builds\feb1\feb1_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
+<RI> Input initialized.
+<RI> Initialized touch support.
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1498)
+
+The referenced script on this Behaviour (Game Object 'reverbManager') is missing!
+ 
+(Filename:  Line: 1655)
+
+UnloadTime: 0.662122 ms
+OnStatusChanged: Connect
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Connected to NameServer.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+OnStatusChanged: EncryptionEstablished
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+OperationResponse 230: ReturnCode: 0.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+OnStatusChanged: Disconnect
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+OnStatusChanged: Connect
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Connected to masterserver.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+OnStatusChanged: EncryptionEstablished
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+OnEvent: Event 226.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+OperationResponse 230: ReturnCode: 0.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+OperationResponse 229: ReturnCode: 0.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+joined room
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+OnEvent: Event 230.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+OperationResponse 226: ReturnCode: 0.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+OnStatusChanged: Disconnect
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+OnStatusChanged: Connect
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Connected to gameserver.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+OnStatusChanged: EncryptionEstablished
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+OperationResponse 230: ReturnCode: 0.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+OperationResponse 226: ReturnCode: 0.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+OnEvent: Event 255.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1498)
+
+The referenced script on this Behaviour (Game Object 'reverbCalculator') is missing!
+ 
+(Filename:  Line: 1655)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1498)
+
+The referenced script on this Behaviour (Game Object 'reverbCalculator') is missing!
+ 
+(Filename:  Line: 1655)
+
+The referenced script on this Behaviour (Game Object 'reverbCalculator') is missing!
+ 
+(Filename:  Line: 1655)
+
+Registered PhotonView: 1001
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+playercount:1
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+1
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Microphone (Conexant SmartAudio HD)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+OnStatusChanged: Disconnect
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Network destroy Instantiated GO: player(Clone)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 3168 -> priority: 1 
+  Thread -> id: 177c -> priority: 1 

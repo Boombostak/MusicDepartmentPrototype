@@ -50,6 +50,7 @@ GameObject:
   - 4: {fileID: 449732}
   - 114: {fileID: 11443598}
   - 114: {fileID: 11490810}
+  - 114: {fileID: 11499866}
   m_Layer: 0
   m_Name: reverbCalculator
   m_TagString: Untagged
@@ -114,7 +115,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 111676}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.364872, y: 110.74883, z: -1960.8976}
+  m_LocalPosition: {x: -592.33417, y: 3.5136728, z: -140.06183}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 467716}
@@ -244,7 +245,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24333510, guid: 6295da874f26cb24bb3c5ff5c668e759,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 5eecc4893042cd940a9c4a7d369944ab, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -508,6 +509,36 @@ MonoBehaviour:
   beepclip: {fileID: 8300000, guid: f6889daa82f200a41971d2710d51d627, type: 3}
   source: {fileID: 8293670}
   micclip: {fileID: 0}
+--- !u!114 &11499866
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 160674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 232a1c2dc57811d4caa6f0afb8cc3cd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  mixer: {fileID: 24100000, guid: d616953a5a964894aaec56ff09b93fb5, type: 2}
+  snapshots:
+  - {fileID: 24525546, guid: d616953a5a964894aaec56ff09b93fb5, type: 2}
+  - {fileID: 24582998, guid: d616953a5a964894aaec56ff09b93fb5, type: 2}
+  - {fileID: 24539180, guid: d616953a5a964894aaec56ff09b93fb5, type: 2}
+  - {fileID: 24541212, guid: d616953a5a964894aaec56ff09b93fb5, type: 2}
+  nodes:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  closenesses:
+  - 0
+  - 0
+  - 0
+  - 0
+  setUpHasRun: 0
+  AlsoHasAudioSource: 0
 --- !u!124 &12435190
 Behaviour:
   m_ObjectHideFlags: 1
