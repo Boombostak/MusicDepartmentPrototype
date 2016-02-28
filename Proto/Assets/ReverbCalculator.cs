@@ -10,15 +10,26 @@ public class ReverbCalculator : MonoBehaviour {
 	public GameObject[] nodes;
 	public float[] closenesses;
     public static AudioMixerSnapshot[] masterSnapshots;
+    public RaycastHit hitToTestInside;
+    public bool isInside;
 
 	// Use this for initialization
 	void Start () {
         target = this.GetComponentInChildren<AudioSource>();
         SetUp();
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update() {
+
+        if (hitToTestInside.collider.bounds.Contains(target.gameObject.transform.position))
+        {
+            isInside = true;
+        }
+        else
+	    {
+            isInside = false;
+        }
 
         //update positions (should this be a coroutine?)
         for (int i = 0; i < nodes.Length; i++) {
@@ -26,7 +37,6 @@ public class ReverbCalculator : MonoBehaviour {
 				Vector3.Distance(nodes[i].transform.position, 
 				                 target.transform.position);
 		}
-		BlendSnapshots ();
 	}
 
 	public void BlendSnapshots()

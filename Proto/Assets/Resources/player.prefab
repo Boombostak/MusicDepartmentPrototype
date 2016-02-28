@@ -17,6 +17,7 @@ GameObject:
   - 114: {fileID: 11496720}
   - 135: {fileID: 13522180}
   - 114: {fileID: 11452828}
+  - 114: {fileID: 11491886}
   m_Layer: 8
   m_Name: player
   m_TagString: Player
@@ -115,7 +116,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 111676}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -592.33417, y: 3.5136728, z: -140.06183}
+  m_LocalPosition: {x: -115.76056, y: 0.5, z: -37.548706}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 467716}
@@ -361,7 +362,17 @@ MonoBehaviour:
   - {fileID: 24513476, guid: 6295da874f26cb24bb3c5ff5c668e759, type: 2}
   - {fileID: 24560620, guid: 6295da874f26cb24bb3c5ff5c668e759, type: 2}
   - {fileID: 24566648, guid: 6295da874f26cb24bb3c5ff5c668e759, type: 2}
+  - {fileID: 24566648, guid: 6295da874f26cb24bb3c5ff5c668e759, type: 2}
+  - {fileID: 24566648, guid: 6295da874f26cb24bb3c5ff5c668e759, type: 2}
+  - {fileID: 24566648, guid: 6295da874f26cb24bb3c5ff5c668e759, type: 2}
+  - {fileID: 24566648, guid: 6295da874f26cb24bb3c5ff5c668e759, type: 2}
+  - {fileID: 24566648, guid: 6295da874f26cb24bb3c5ff5c668e759, type: 2}
   nodes:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -371,6 +382,12 @@ MonoBehaviour:
   - 0
   - 0
   - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  isInside: 0
 --- !u!114 &11445314
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -466,6 +483,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 211da4db37c7b584896321aef134075f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11491886
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bb22ae974ad16048a61362cde1a2c08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeMultiplier: 1
+  wheelValue: 0
+  tod_time: {fileID: 0}
+  speedingUp: 0
+  slowingDown: 0
 --- !u!114 &11496720
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -527,12 +560,27 @@ MonoBehaviour:
   - {fileID: 24582998, guid: d616953a5a964894aaec56ff09b93fb5, type: 2}
   - {fileID: 24539180, guid: d616953a5a964894aaec56ff09b93fb5, type: 2}
   - {fileID: 24541212, guid: d616953a5a964894aaec56ff09b93fb5, type: 2}
+  - {fileID: 24506454, guid: d616953a5a964894aaec56ff09b93fb5, type: 2}
+  - {fileID: 24537186, guid: d616953a5a964894aaec56ff09b93fb5, type: 2}
+  - {fileID: 24518844, guid: d616953a5a964894aaec56ff09b93fb5, type: 2}
+  - {fileID: 24564832, guid: d616953a5a964894aaec56ff09b93fb5, type: 2}
+  - {fileID: 24517360, guid: d616953a5a964894aaec56ff09b93fb5, type: 2}
   nodes:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   closenesses:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   - 0
   - 0
   - 0
