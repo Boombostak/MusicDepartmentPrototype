@@ -13,6 +13,7 @@ public class ReverbController : MonoBehaviour {
 	public ReverbParameters averagedVerbParams;
 	public GameObject[] nodes;
 	public float[] closenesses;
+	public float[] normalizedClosenesses;
 	public ReverbParameters[] nodeParams;
 	public AudioSource target;
 	public RaycastHit hitToTestInside;
@@ -47,10 +48,19 @@ public class ReverbController : MonoBehaviour {
 	public float sumDensity;
 	public float blendedDensity;
 
+	public float closest;
+	public float farthest;
+
 
 
 	public void SetUp()
 	{
+		int nodeCount = GameObject.Find ("reverbManager").transform.FindChild ("nodesGO").childCount;
+		nodes = new GameObject[nodeCount];
+		closenesses = new float[nodeCount];
+		nodeParams = new ReverbParameters[nodeCount];
+		normalizedClosenesses = new float[nodeCount];
+
 		for (int i = 0; i < GameObject.Find("reverbManager").transform.FindChild("nodesGO").childCount; i++)
 		{
 			nodes[i] = GameObject.Find("reverbManager").transform.FindChild("nodesGO").transform.GetChild(i).gameObject;
@@ -58,66 +68,114 @@ public class ReverbController : MonoBehaviour {
 		}
 	}
 
+	public float FindHighestCloseness(float[] floats){
+		float max = floats [0];
+		for (int i = 0; i < floats.Length; i++) {
+			if (floats [i] > max) {
+				max = floats [i];
+			}
+		}
+		return max;
+	}
+
+	public float FindLowestCloseness(float[] floats){
+		float min = floats [0];
+		for (int i = 0; i < floats.Length; i++) {
+			if (floats[i]<min) {
+				min = floats [i];
+			}
+		}
+		return min;
+	}
+
 	void BlendNodeParams(){
-		for (int i = 0; i < nodeParams.Length; i++) {
-			sumDryLevel += (nodeParams [i].drylevel * closenesses[i]);
-		}
-		blendedDryLevel = sumDryLevel/(float)nodeParams.Length;
 
-		for (int i = 0; i < nodeParams.Length; i++) {
-			sumRoom += (nodeParams [i].room * closenesses[i]);
+		sumDryLevel = 0;
+		for (int i = 0; i < nodeParams.Length; i++) 
+		{
+			sumDryLevel += (nodeParams [i].drylevel * normalizedClosenesses [i]);
 		}
-		blendedRoom = sumRoom/(float)nodeParams.Length;
+		blendedDryLevel = Mathf.Clamp(sumDryLevel/(float)nodeParams.Length, -10000.0f,0.0f);
 
-		for (int i = 0; i < nodeParams.Length; i++) {
-			sumRoomHF += (nodeParams [i].roomhf * closenesses[i]);
-		}
-		blendedRoomHF = sumRoomHF/(float)nodeParams.Length;
 
+		sumRoom = 0;
 		for (int i = 0; i < nodeParams.Length; i++) {
-			sumRoomLF += (nodeParams [i].drylevel * closenesses[i]);
+
+			sumRoom += (nodeParams [i].room * normalizedClosenesses[i]);
 		}
-		blendedDryLevel = sumDryLevel/(float)nodeParams.Length;
+		blendedRoom = Mathf.Clamp(sumRoom/(float)nodeParams.Length,-10000.0f,0.0f);
+
+		sumRoomHF = 0;
 		for (int i = 0; i < nodeParams.Length; i++) {
-			sumDryLevel += (nodeParams [i].drylevel * closenesses[i]);
+			sumRoomHF += (nodeParams [i].roomhf * normalizedClosenesses[i]);
 		}
-		blendedDryLevel = sumDryLevel/(float)nodeParams.Length;
+		blendedRoomHF = Mathf.Clamp(sumRoomHF/(float)nodeParams.Length,-10000.0f,0.0f);
+
+		sumRoomLF = 0;
 		for (int i = 0; i < nodeParams.Length; i++) {
-			sumDryLevel += (nodeParams [i].drylevel * closenesses[i]);
+			sumRoomLF += (nodeParams [i].roomlf*normalizedClosenesses[i]);
 		}
-		blendedDryLevel = sumDryLevel/(float)nodeParams.Length;
+		blendedRoomLF = Mathf.Clamp(sumRoomLF/(float)nodeParams.Length,-10000.0f,0.0f);
+
+		sumDecayTime = 0;
 		for (int i = 0; i < nodeParams.Length; i++) {
-			sumDryLevel += (nodeParams [i].drylevel * closenesses[i]);
+			sumDecayTime += (nodeParams [i].decaytime*normalizedClosenesses[i]);
 		}
-		blendedDryLevel = sumDryLevel/(float)nodeParams.Length;
+		blendedDecayTime = Mathf.Clamp(sumDecayTime/(float)nodeParams.Length, 0.1f,20.0f);
+
+		sumHFRatio = 0;
 		for (int i = 0; i < nodeParams.Length; i++) {
-			sumDryLevel += (nodeParams [i].drylevel * closenesses[i]);
+			sumHFRatio += (nodeParams [i].decayhfratio*normalizedClosenesses[i]);
 		}
-		blendedDryLevel = sumDryLevel/(float)nodeParams.Length;
+		blendedHFRatio = Mathf.Clamp(sumHFRatio/(float)nodeParams.Length, 0.1f,2.0f);
+
+		sumReflectionsLevel = 0;
 		for (int i = 0; i < nodeParams.Length; i++) {
-			sumDryLevel += (nodeParams [i].drylevel * closenesses[i]);
+			sumReflectionsLevel += (nodeParams [i].reflectionslevel*normalizedClosenesses[i]);
 		}
-		blendedDryLevel = sumDryLevel/(float)nodeParams.Length;
+		blendedReflectionsLevel = Mathf.Clamp(sumReflectionsLevel/(float)nodeParams.Length, -10000.0f,1000f);
+
+		sumReflectionsDelay = 0;
 		for (int i = 0; i < nodeParams.Length; i++) {
-			sumDryLevel += (nodeParams [i].drylevel * closenesses[i]);
+			sumReflectionsDelay += (nodeParams [i].reflectionsdelay*normalizedClosenesses[i]);
 		}
-		blendedDryLevel = sumDryLevel/(float)nodeParams.Length;
+		blendedReflectionsDelay = Mathf.Clamp(sumReflectionsDelay/(float)nodeParams.Length,-10000.0f,2000.0f);
+
+		sumReverbLevel = 0;
 		for (int i = 0; i < nodeParams.Length; i++) {
-			sumDryLevel += (nodeParams [i].drylevel * closenesses[i]);
+			sumReverbLevel += (nodeParams [i].reverblevel*normalizedClosenesses[i]);
 		}
-		blendedDryLevel = sumDryLevel/(float)nodeParams.Length;
+		blendedReverbLevel = Mathf.Clamp(sumReverbLevel/(float)nodeParams.Length,-10000f,2000f);
+
+		sumReverbDelay = 0;
 		for (int i = 0; i < nodeParams.Length; i++) {
-			sumDryLevel += (nodeParams [i].drylevel * closenesses[i]);
+			sumReverbDelay += (nodeParams [i].reverbdelay*normalizedClosenesses[i]);
 		}
-		blendedDryLevel = sumDryLevel/(float)nodeParams.Length;
+		blendedReverbDelay = Mathf.Clamp(sumReverbDelay/(float)nodeParams.Length,0.0f,0.1f);
+
+		sumHFReference = 0;
 		for (int i = 0; i < nodeParams.Length; i++) {
-			sumDryLevel += (nodeParams [i].drylevel * closenesses[i]);
+			sumHFReference += (nodeParams [i].hfreference*normalizedClosenesses[i]);
 		}
-		blendedDryLevel = sumDryLevel/(float)nodeParams.Length;
+		blendedHFReference = Mathf.Clamp(sumHFReference/(float)nodeParams.Length,20f,20000f);
+
+		sumLFReference = 0;
 		for (int i = 0; i < nodeParams.Length; i++) {
-			sumDryLevel += (nodeParams [i].drylevel * closenesses[i]);
+			sumLFReference += (nodeParams [i].lfreference*normalizedClosenesses[i]);
 		}
-		blendedDryLevel = sumDryLevel/(float)nodeParams.Length;
+		blendedLFReference = Mathf.Clamp(sumLFReference/(float)nodeParams.Length,20f,1000f);
+
+		sumDiffusion = 0;
+		for (int i = 0; i < nodeParams.Length; i++) {
+			sumDiffusion += (nodeParams [i].diffusion*normalizedClosenesses[i]);
+		}
+		blendedDiffusion = Mathf.Clamp(sumDiffusion/(float)nodeParams.Length,0.0f,100f);
+
+		sumDensity = 0;
+		for (int i = 0; i < nodeParams.Length; i++) {
+			sumDensity += (nodeParams [i].density*normalizedClosenesses[i]);
+		}
+		blendedDensity = Mathf.Clamp(sumDensity/(float)nodeParams.Length,0f,100f);
 	}
 
 	// Use this for initialization
@@ -127,27 +185,50 @@ public class ReverbController : MonoBehaviour {
 		SetUp();
 	}
 
+	public void AssignBlendsToParams(){
+		averagedVerbParams.drylevel = blendedDryLevel;
+		averagedVerbParams.room = blendedRoom;
+		averagedVerbParams.roomhf = blendedRoomHF;
+		averagedVerbParams.roomlf = blendedRoomLF;
+		averagedVerbParams.decaytime = blendedDecayTime;
+		averagedVerbParams.decayhfratio = blendedHFRatio;
+		averagedVerbParams.reflectionslevel = blendedReflectionsLevel;
+		averagedVerbParams.reflectionsdelay = blendedReflectionsDelay;
+		averagedVerbParams.reverblevel = blendedReverbLevel;
+		averagedVerbParams.reverbdelay = blendedReverbDelay;
+		averagedVerbParams.hfreference = blendedHFReference;
+		averagedVerbParams.lfreference = blendedLFReference;
+		averagedVerbParams.diffusion = blendedDiffusion;
+		averagedVerbParams.density = blendedDensity;
+	}
+
+
 	[ExecuteInEditMode]
 	public void AssignParamsToVerb(){
-		filter.dryLevel = averagedVerbParams.drylevel;
-		filter.room = averagedVerbParams.room;
-		filter.roomHF = averagedVerbParams.roomhf;
-		filter.roomLF = averagedVerbParams.roomlf;
-		filter.decayTime = averagedVerbParams.decaytime;
-		filter.decayHFRatio = averagedVerbParams.decayhfratio;
-		filter.reflectionsLevel = averagedVerbParams.reflectionslevel;
-		filter.reflectionsDelay = averagedVerbParams.reflectionsdelay;
-		filter.reverbLevel = averagedVerbParams.reverblevel;
-		filter.reverbDelay = averagedVerbParams.reverbdelay;
-		filter.hfReference = averagedVerbParams.hfreference;
-		filter.lfReference = averagedVerbParams.lfreference;
-		filter.diffusion = averagedVerbParams.diffusion;
-		filter.density = averagedVerbParams.density;
+		filter.dryLevel = Mathf.Clamp(filter.dryLevel, blendedDryLevel,0.1f);
+		filter.room = Mathf.Lerp(filter.room, blendedRoom, 0.1f);
+		filter.roomHF = Mathf.Lerp(filter.roomHF, blendedRoomHF, 0.1f);
+		filter.roomLF = Mathf.Lerp(filter.roomLF, blendedRoomLF, 0.1f);
+		filter.decayTime = Mathf.Lerp(filter.decayTime, blendedDecayTime, 0.1f);
+		filter.decayHFRatio = Mathf.Lerp(filter.decayHFRatio, blendedHFRatio, 0.1f);
+		filter.reflectionsLevel = Mathf.Lerp(filter.reflectionsLevel, blendedReflectionsLevel, 0.1f);
+		filter.reflectionsDelay = Mathf.Lerp(filter.reflectionsDelay, blendedReflectionsDelay, 0.1f);
+		filter.reverbLevel = Mathf.Lerp(filter.reverbLevel, blendedReverbLevel, 0.1f);
+		filter.reverbDelay = Mathf.Lerp(filter.reverbDelay, blendedReverbDelay, 0.1f);
+		filter.hfReference = Mathf.Lerp(filter.hfReference, blendedHFReference, 0.1f);
+		filter.lfReference = Mathf.Lerp(filter.lfReference, blendedLFReference, 0.1f);
+		filter.diffusion = Mathf.Lerp(filter.diffusion, blendedDiffusion, 0.1f);
+		filter.density = Mathf.Lerp(filter.density, blendedDensity, 0.1f);
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
+		//AssignBlendsToParams ();
 		AssignParamsToVerb ();
+		closest = FindHighestCloseness (closenesses);
+		farthest = FindLowestCloseness (closenesses);
+		BlendNodeParams ();
 
 
 		/*if (hitToTestInside.collider.bounds.Contains(target.gameObject.transform.position))
@@ -160,10 +241,20 @@ public class ReverbController : MonoBehaviour {
 		}*/
 
 		//update positions (should this be a coroutine?)
+
+
 		for (int i = 0; i < nodes.Length; i++) {
-			closenesses[i] = 1/
-				Vector3.Distance(nodes[i].transform.position, 
-					target.transform.position);
+			closenesses [i] =
+
+				1 /
+				
+			(Vector3.Distance (nodes [i].transform.position, 
+				target.transform.position));
+		}
+
+		//normalize values
+		for (int i = 0; i < closenesses.Length; i++) {
+			normalizedClosenesses [i] = (closenesses [i] - farthest) / (closest - farthest);
 		}
 	}
 }

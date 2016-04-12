@@ -17,7 +17,12 @@ public class ReverbCalculatorForListener : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        target = this.transform.parent.GetComponentInChildren<AudioListener>();
+		int nodeCount = GameObject.Find ("reverbManager").transform.FindChild ("nodesGO").childCount;
+		nodes = new GameObject[nodeCount];
+		closenesses = new float[nodeCount];
+		snapshots = new AudioMixerSnapshot[nodeCount];
+
+		target = this.transform.parent.GetComponentInChildren<AudioListener>();
         SetUp();
 
         //account for source and listener conflicts
