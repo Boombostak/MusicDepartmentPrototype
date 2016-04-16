@@ -157,7 +157,7 @@ public class ReverbController : MonoBehaviour {
 		for (int i = 0; i < nodeParams.Length; i++) {
 			sumHFReference += (nodeParams [i].hfreference*normalizedClosenesses[i]);
 		}
-		blendedHFReference = Mathf.Clamp(sumHFReference/(float)nodeParams.Length,20f,20000f);
+		blendedHFReference = Mathf.Clamp(sumHFReference/(float)nodeParams.Length,1000f,20000f);
 
 		sumLFReference = 0;
 		for (int i = 0; i < nodeParams.Length; i++) {
@@ -205,26 +205,26 @@ public class ReverbController : MonoBehaviour {
 
 	[ExecuteInEditMode]
 	public void AssignParamsToVerb(){
-		filter.dryLevel = Mathf.Clamp(filter.dryLevel, blendedDryLevel,0.1f);
-		filter.room = Mathf.Lerp(filter.room, blendedRoom, 0.1f);
-		filter.roomHF = Mathf.Lerp(filter.roomHF, blendedRoomHF, 0.1f);
-		filter.roomLF = Mathf.Lerp(filter.roomLF, blendedRoomLF, 0.1f);
-		filter.decayTime = Mathf.Lerp(filter.decayTime, blendedDecayTime, 0.1f);
-		filter.decayHFRatio = Mathf.Lerp(filter.decayHFRatio, blendedHFRatio, 0.1f);
-		filter.reflectionsLevel = Mathf.Lerp(filter.reflectionsLevel, blendedReflectionsLevel, 0.1f);
-		filter.reflectionsDelay = Mathf.Lerp(filter.reflectionsDelay, blendedReflectionsDelay, 0.1f);
-		filter.reverbLevel = Mathf.Lerp(filter.reverbLevel, blendedReverbLevel, 0.1f);
-		filter.reverbDelay = Mathf.Lerp(filter.reverbDelay, blendedReverbDelay, 0.1f);
-		filter.hfReference = Mathf.Lerp(filter.hfReference, blendedHFReference, 0.1f);
-		filter.lfReference = Mathf.Lerp(filter.lfReference, blendedLFReference, 0.1f);
-		filter.diffusion = Mathf.Lerp(filter.diffusion, blendedDiffusion, 0.1f);
-		filter.density = Mathf.Lerp(filter.density, blendedDensity, 0.1f);
+		filter.dryLevel = blendedDryLevel;
+		filter.room = blendedRoom;
+		filter.roomHF = blendedRoomHF;
+		filter.roomLF = blendedRoomLF;
+		filter.decayTime = blendedDecayTime;
+		filter.decayHFRatio = blendedHFRatio;
+		filter.reflectionsLevel = blendedReflectionsLevel;
+		filter.reflectionsDelay = blendedReflectionsDelay;
+		filter.reverbLevel = blendedReverbLevel;
+		filter.reverbDelay = blendedReverbDelay;
+		filter.hfReference = blendedHFReference;
+		filter.lfReference = blendedLFReference;
+		filter.diffusion = blendedDiffusion;
+		filter.density = blendedDensity;
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		//AssignBlendsToParams ();
+		AssignBlendsToParams ();
 		AssignParamsToVerb ();
 		closest = FindHighestCloseness (closenesses);
 		farthest = FindLowestCloseness (closenesses);

@@ -23,9 +23,9 @@ public class ReverbParameters : MonoBehaviour {
 	public float reverblevel;
 	[Range(0.0f, 0.1f)]
 	public float reverbdelay;
-	[Range(20f, 20000f)]
+	[Range(1000f, 20000f)]
 	public float hfreference;
-	[Range(20f, 20000f)]
+	[Range(20f, 1000f)]
 	public float lfreference;
 	[Range(0f, 100f)]
 	public float diffusion;
