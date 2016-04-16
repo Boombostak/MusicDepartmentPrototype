@@ -3,7 +3,9 @@ using System.Collections;
 using UnityEngine.Audio;
 using System.Linq;
 
-//[RequireComponent (AudioReverbFilter)]
+[RequireComponent(typeof(AudioSource))]
+[RequireComponent (typeof(AudioReverbFilter))]
+[RequireComponent(typeof(ReverbParameters))]
 public class ReverbController : MonoBehaviour {
 
 	//NOTE: Indexes of Node array, parameter array must match!!!
@@ -182,6 +184,7 @@ public class ReverbController : MonoBehaviour {
 	void Start () {
 		filter = this.gameObject.GetComponent<AudioReverbFilter>();
 		target = this.GetComponentInChildren<AudioSource>();
+		averagedVerbParams = this.GetComponent<ReverbParameters> ();
 		SetUp();
 	}
 

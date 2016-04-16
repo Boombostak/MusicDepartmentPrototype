@@ -1045,10 +1045,10 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1070310298}
-  - 114: {fileID: 1070310299}
-  - 82: {fileID: 1070310301}
+  - 82: {fileID: 1070310302}
+  - 114: {fileID: 1070310301}
   - 164: {fileID: 1070310300}
-  - 114: {fileID: 1070310302}
+  - 114: {fileID: 1070310299}
   m_Layer: 0
   m_Name: git test
   m_TagString: Untagged
@@ -1079,18 +1079,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cceed33e29567640bbb8b3b7832485b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filter: {fileID: 1070310300}
-  averagedVerbParams: {fileID: 1070310302}
-  nodes:
-  - {fileID: 0}
-  - {fileID: 0}
-  closenesses:
-  - 0
-  - 0
+  filter: {fileID: 0}
+  averagedVerbParams: {fileID: 0}
+  nodes: []
+  closenesses: []
   normalizedClosenesses: []
-  nodeParams:
-  - {fileID: 0}
-  - {fileID: 0}
+  nodeParams: []
   target: {fileID: 0}
   isInside: 0
   sumDryLevel: 0
@@ -1141,12 +1135,37 @@ AudioReverbFilter:
   m_ReverbDelay: 0.04
   m_Diffusion: 100
   m_Density: 100
-  m_HFReference: 20000
+  m_HFReference: 5000
   m_RoomLF: 0
-  m_LFReference: 1000
+  m_LFReference: 250
   m_ReflectionsDelay: 0
   m_ReverbPreset: 27
---- !u!82 &1070310301
+--- !u!114 &1070310301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1070310297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebe225c9c6003c1419cb656157940881, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drylevel: 0
+  room: 0
+  roomhf: 0
+  roomlf: 0
+  decaytime: 0
+  decayhfratio: 0
+  reflectionslevel: 0
+  reflectionsdelay: 0
+  reverblevel: 0
+  reverbdelay: 0
+  hfreference: 0
+  lfreference: 0
+  diffusion: 0
+  density: 0
+--- !u!82 &1070310302
 AudioSource:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -1220,31 +1239,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1070310302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1070310297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebe225c9c6003c1419cb656157940881, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  drylevel: 0
-  room: -4086
-  roomhf: -6576
-  roomlf: 0
-  decaytime: 10.4
-  decayhfratio: 0
-  reflectionslevel: 0
-  reflectionsdelay: 0
-  reverblevel: 0
-  reverbdelay: 0
-  hfreference: 20
-  lfreference: 20000
-  diffusion: 0
-  density: 0
 --- !u!1 &1101205028
 GameObject:
   m_ObjectHideFlags: 0
