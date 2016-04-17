@@ -50,6 +50,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 421024}
   - 82: {fileID: 8265268}
+  - 114: {fileID: 11457074}
+  - 164: {fileID: 16498346}
+  - 114: {fileID: 11448424}
   m_Layer: 8
   m_Name: Audio
   m_TagString: Untagged
@@ -111,7 +114,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 111676}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.0723877, y: 0.5, z: -8.95697}
+  m_LocalPosition: {x: 219.09845, y: 0.5, z: -127.58737}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 467716}
@@ -338,6 +341,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8388d46a30cd6d4478d94e34d3c51fe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11448424
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 143340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cceed33e29567640bbb8b3b7832485b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  filter: {fileID: 16498346}
+  averagedVerbParams: {fileID: 11457074}
+  nodes: []
+  closenesses: []
+  normalizedClosenesses: []
+  nodeParams: []
+  target: {fileID: 0}
+  isInside: 0
+  sumDryLevel: 0
+  blendedDryLevel: 0
+  sumRoom: 0
+  blendedRoom: 0
+  sumRoomHF: 0
+  blendedRoomHF: 0
+  sumRoomLF: 0
+  blendedRoomLF: 0
+  sumDecayTime: 0
+  blendedDecayTime: 0
+  sumHFRatio: 0
+  blendedHFRatio: 0
+  sumReflectionsLevel: 0
+  blendedReflectionsLevel: 0
+  sumReflectionsDelay: 0
+  blendedReflectionsDelay: 0
+  sumReverbLevel: 0
+  blendedReverbLevel: 0
+  sumReverbDelay: 0
+  blendedReverbDelay: 0
+  sumHFReference: 0
+  blendedHFReference: 0
+  sumLFReference: 0
+  blendedLFReference: 0
+  sumDiffusion: 0
+  blendedDiffusion: 0
+  sumDensity: 0
+  blendedDensity: 0
+  closest: 0
+  farthest: 0
 --- !u!114 &11452828
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -350,6 +402,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &11457074
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 143340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebe225c9c6003c1419cb656157940881, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drylevel: 0
+  room: 0
+  roomhf: 0
+  roomlf: 0
+  decaytime: 0
+  decayhfratio: 0
+  reflectionslevel: 0
+  reflectionsdelay: 0
+  reverblevel: 0
+  reverbdelay: 0
+  hfreference: 0
+  lfreference: 0
+  diffusion: 0
+  density: 0
 --- !u!114 &11464110
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -533,6 +610,29 @@ AudioReverbFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 178932}
+  m_Enabled: 1
+  m_DryLevel: 0
+  m_Room: 0
+  m_RoomHF: 0
+  m_RoomRolloff: 0
+  m_DecayTime: 1
+  m_DecayHFRatio: 0.5
+  m_ReflectionsLevel: -10000
+  m_ReverbLevel: 0
+  m_ReverbDelay: 0.04
+  m_Diffusion: 100
+  m_Density: 100
+  m_HFReference: 5000
+  m_RoomLF: 0
+  m_LFReference: 250
+  m_ReflectionsDelay: 0
+  m_ReverbPreset: 27
+--- !u!164 &16498346
+AudioReverbFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 143340}
   m_Enabled: 1
   m_DryLevel: 0
   m_Room: 0
