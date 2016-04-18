@@ -287,7 +287,7 @@ GameObject:
   - 114: {fileID: 161680920}
   m_Layer: 0
   m_Name: top of parapet
-  m_TagString: Untagged
+  m_TagString: reverbnode
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -388,7 +388,7 @@ GameObject:
   - 114: {fileID: 166168325}
   m_Layer: 0
   m_Name: northwest
-  m_TagString: Untagged
+  m_TagString: reverbnode
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -645,7 +645,7 @@ GameObject:
   - 114: {fileID: 233325636}
   m_Layer: 0
   m_Name: south centre
-  m_TagString: Untagged
+  m_TagString: reverbnode
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -958,7 +958,7 @@ GameObject:
   - 114: {fileID: 472525425}
   m_Layer: 0
   m_Name: southeast
-  m_TagString: Untagged
+  m_TagString: reverbnode
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1059,7 +1059,7 @@ GameObject:
   - 114: {fileID: 499722787}
   m_Layer: 0
   m_Name: parapet balcony
-  m_TagString: Untagged
+  m_TagString: reverbnode
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1160,7 +1160,7 @@ GameObject:
   - 114: {fileID: 554757811}
   m_Layer: 0
   m_Name: upper southwest corner
-  m_TagString: Untagged
+  m_TagString: reverbnode
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1267,7 +1267,7 @@ GameObject:
   - 114: {fileID: 586347969}
   m_Layer: 0
   m_Name: up
-  m_TagString: Untagged
+  m_TagString: reverbnode
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1447,7 +1447,7 @@ GameObject:
   - 114: {fileID: 863301961}
   m_Layer: 0
   m_Name: upper southeast corner
-  m_TagString: Untagged
+  m_TagString: reverbnode
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1548,7 +1548,7 @@ GameObject:
   - 114: {fileID: 881266556}
   m_Layer: 0
   m_Name: node (3)
-  m_TagString: Untagged
+  m_TagString: reverbnode
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1773,7 +1773,7 @@ GameObject:
   - 114: {fileID: 939661135}
   m_Layer: 0
   m_Name: southwest
-  m_TagString: Untagged
+  m_TagString: reverbnode
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1874,7 +1874,7 @@ GameObject:
   - 114: {fileID: 998915721}
   m_Layer: 0
   m_Name: upper northwest corner
-  m_TagString: Untagged
+  m_TagString: reverbnode
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1975,7 +1975,7 @@ GameObject:
   - 114: {fileID: 1012275287}
   m_Layer: 0
   m_Name: node (4)
-  m_TagString: Untagged
+  m_TagString: reverbnode
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2070,10 +2070,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1070310298}
-  - 82: {fileID: 1070310302}
-  - 114: {fileID: 1070310301}
-  - 164: {fileID: 1070310300}
+  - 65: {fileID: 1070310300}
   - 114: {fileID: 1070310299}
+  - 54: {fileID: 1070310301}
   m_Layer: 0
   m_Name: git test
   m_TagString: Untagged
@@ -2088,7 +2087,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1070310297}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.3, y: 0, z: -146.2}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2101,170 +2100,38 @@ MonoBehaviour:
   m_GameObject: {fileID: 1070310297}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cceed33e29567640bbb8b3b7832485b, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a647a04b994a41489a85e49000e83d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filter: {fileID: 0}
-  averagedVerbParams: {fileID: 0}
-  nodes: []
-  closenesses: []
-  normalizedClosenesses: []
-  nodeParams: []
-  target: {fileID: 0}
-  isInside: 0
-  sumDryLevel: 0
-  blendedDryLevel: 0
-  sumRoom: 0
-  blendedRoom: 0
-  sumRoomHF: 0
-  blendedRoomHF: 0
-  sumRoomLF: 0
-  blendedRoomLF: 0
-  sumDecayTime: 0
-  blendedDecayTime: 0
-  sumHFRatio: 0
-  blendedHFRatio: 0
-  sumReflectionsLevel: 0
-  blendedReflectionsLevel: 0
-  sumReflectionsDelay: 0
-  blendedReflectionsDelay: 0
-  sumReverbLevel: 0
-  blendedReverbLevel: 0
-  sumReverbDelay: 0
-  blendedReverbDelay: 0
-  sumHFReference: 0
-  blendedHFReference: 0
-  sumLFReference: 0
-  blendedLFReference: 0
-  sumDiffusion: 0
-  blendedDiffusion: 0
-  sumDensity: 0
-  blendedDensity: 0
-  closest: 0
-  farthest: 0
---- !u!164 &1070310300
-AudioReverbFilter:
+  activeCollider: {fileID: 1070310300}
+  nodeList: []
+--- !u!65 &1070310300
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1070310297}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_DryLevel: 0
-  m_Room: 0
-  m_RoomHF: 0
-  m_RoomRolloff: 0
-  m_DecayTime: 1
-  m_DecayHFRatio: 0.5
-  m_ReflectionsLevel: -10000
-  m_ReverbLevel: 0
-  m_ReverbDelay: 0.04
-  m_Diffusion: 100
-  m_Density: 100
-  m_HFReference: 5000
-  m_RoomLF: 0
-  m_LFReference: 250
-  m_ReflectionsDelay: 0
-  m_ReverbPreset: 27
---- !u!114 &1070310301
-MonoBehaviour:
+  serializedVersion: 2
+  m_Size: {x: 310.67975, y: 900, z: 900}
+  m_Center: {x: -294.66013, y: 0, z: 0}
+--- !u!54 &1070310301
+Rigidbody:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1070310297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebe225c9c6003c1419cb656157940881, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  drylevel: 0
-  room: 0
-  roomhf: 0
-  roomlf: 0
-  decaytime: 0
-  decayhfratio: 0
-  reflectionslevel: 0
-  reflectionsdelay: 0
-  reverblevel: 0
-  reverbdelay: 0
-  hfreference: 0
-  lfreference: 0
-  diffusion: 0
-  density: 0
---- !u!82 &1070310302
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1070310297}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300001, guid: 2167ac1a4210c72439ab4a9f3ebb71b6,
-    type: 2}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1101205028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2306,7 +2173,7 @@ GameObject:
   - 114: {fileID: 1138537261}
   m_Layer: 0
   m_Name: node (2)
-  m_TagString: Untagged
+  m_TagString: reverbnode
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2407,7 +2274,7 @@ GameObject:
   - 114: {fileID: 1154720934}
   m_Layer: 0
   m_Name: west centre
-  m_TagString: Untagged
+  m_TagString: reverbnode
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2508,7 +2375,7 @@ GameObject:
   - 114: {fileID: 1180833835}
   m_Layer: 0
   m_Name: northeast
-  m_TagString: Untagged
+  m_TagString: reverbnode
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2636,7 +2503,7 @@ GameObject:
   - 114: {fileID: 1214679394}
   m_Layer: 0
   m_Name: east centre
-  m_TagString: Untagged
+  m_TagString: reverbnode
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2856,7 +2723,7 @@ GameObject:
   - 114: {fileID: 1395695335}
   m_Layer: 0
   m_Name: node (1)
-  m_TagString: Untagged
+  m_TagString: reverbnode
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2957,7 +2824,7 @@ GameObject:
   - 114: {fileID: 1442599544}
   m_Layer: 0
   m_Name: north centre
-  m_TagString: Untagged
+  m_TagString: reverbnode
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -3677,7 +3544,7 @@ GameObject:
   - 114: {fileID: 2017093663}
   m_Layer: 0
   m_Name: upper northeast corner
-  m_TagString: Untagged
+  m_TagString: reverbnode
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
