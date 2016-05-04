@@ -21,7 +21,7 @@ public class NetworkManager : MonoBehaviour {
         connectionText = canvas.GetComponentInChildren<Text>();
     }
 
-    void OnJoinedLobby()
+	void OnJoinedLobby()
     {
         RoomOptions ro = new RoomOptions() { isVisible = true, maxPlayers = 10 }; 
         PhotonNetwork.JoinOrCreateRoom("room1", ro, TypedLobby.Default);
@@ -52,5 +52,9 @@ public class NetworkManager : MonoBehaviour {
     void Update()
     {
         connectionText.text = PhotonNetwork.connectionStateDetailed.ToString();
+		if (PhotonNetwork.connected == false) {
+			PhotonNetwork.offlineMode = true;
+			PhotonNetwork.CreateRoom("some name");
+		}
     }
 }

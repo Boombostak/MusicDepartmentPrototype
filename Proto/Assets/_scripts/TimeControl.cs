@@ -3,7 +3,8 @@ using System.Collections;
 
 public class TimeControl : MonoBehaviour {
 
-    public float timeMultiplier = 1;
+	public static float static_TimeMultiplier =1;
+	public float timeMultiplier = 1;
     public float wheelValue;
     public TOD_Time tod_time;
     public bool speedingUp;
@@ -46,11 +47,17 @@ public class TimeControl : MonoBehaviour {
         if (Input.GetKeyDown("q"))
         {
             tod_time.DayLengthInMinutes= tod_time.DayLengthInMinutes * 2;
+			timeMultiplier /= 2;
+			Debug.Log (static_TimeMultiplier);
         }
         if (Input.GetKeyDown("e"))
         {
             tod_time.DayLengthInMinutes= tod_time.DayLengthInMinutes / 2;
+			timeMultiplier *= 2;
+			Debug.Log (static_TimeMultiplier);
         }
+
+		static_TimeMultiplier = timeMultiplier;
 
         //tod_time.DayLengthInMinutes = Mathf.Clamp(tod_time.DayLengthInMinutes, 0.0001f, 9999f) / timeMultiplier;
     }
