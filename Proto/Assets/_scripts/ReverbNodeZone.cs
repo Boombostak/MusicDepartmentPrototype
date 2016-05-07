@@ -11,6 +11,8 @@ public class ReverbNodeZone : MonoBehaviour {
 	public bool isExclusive;
 	public List<GameObject> associatedNodes;
 	public ReverbNodeZone[] linkedZones;
+	public bool inside;
+	public bool outside;
 
 	//USE ONTRIGGERSTAY!!! Test if the player is staying in the trigger and adjust accordingly.
 

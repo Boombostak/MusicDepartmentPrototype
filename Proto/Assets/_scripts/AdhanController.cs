@@ -7,6 +7,8 @@ public class AdhanController : MonoBehaviour {
     public bool sunBelowHorizon;
     public AudioSource adhanSource;
     public TOD_Sky sky;
+	public ReverNodeZoneDetectorForListener RNZDFL;
+	public AudioLowPassFilter filter;
 
     public bool fajrWasCalled = false;
     public bool dhuhrWasCalled = false;
@@ -16,11 +18,19 @@ public class AdhanController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-	
+		RNZDFL = GameObject.FindObjectOfType<ReverNodeZoneDetectorForListener> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if (RNZDFL==null) {
+			RNZDFL = GameObject.FindObjectOfType<ReverNodeZoneDetectorForListener> ();
+		}
+		if (RNZDFL.playerIsInside) {
+			filter.enabled = true;
+		} else {
+			filter.enabled = false;
+		}
 
         //is the sun visible?
         if (sun.transform.position.y < -3)

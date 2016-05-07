@@ -19,6 +19,10 @@ public class ReverbControllerForListener : MonoBehaviour {
 	public AudioListener target;
 	public RaycastHit hitToTestInside;
 	public bool isInside;
+	public GameObject[] activeNodes;
+	public float[] activeClosenesses;
+	public float[] activeNormalizedClosenesses;
+	public ReverbParameters[] activeNodeParams;
 
 	public float sumDryLevel;
 	public float blendedDryLevel;
@@ -92,91 +96,91 @@ public class ReverbControllerForListener : MonoBehaviour {
 	void BlendNodeParams(){
 
 		sumDryLevel = 0;
-		for (int i = 0; i < nodeParams.Length; i++) 
+		for (int i = 0; i < nodes.Length; i++) 
 		{
 			sumDryLevel += (nodeParams [i].drylevel * normalizedClosenesses [i]);
 		}
-		blendedDryLevel = Mathf.Clamp(sumDryLevel/(float)nodeParams.Length, -10000.0f,0.0f);
+		blendedDryLevel = Mathf.Clamp(sumDryLevel/(float)nodes.Length, -10000.0f,0.0f);
 
 
 		sumRoom = 0;
-		for (int i = 0; i < nodeParams.Length; i++) {
+		for (int i = 0; i < nodes.Length; i++) {
 
 			sumRoom += (nodeParams [i].room * normalizedClosenesses[i]);
 		}
-		blendedRoom = Mathf.Clamp(sumRoom/(float)nodeParams.Length,-10000.0f,0.0f);
+		blendedRoom = Mathf.Clamp(sumRoom/(float)nodes.Length,-10000.0f,0.0f);
 
 		sumRoomHF = 0;
-		for (int i = 0; i < nodeParams.Length; i++) {
+		for (int i = 0; i < nodes.Length; i++) {
 			sumRoomHF += (nodeParams [i].roomhf * normalizedClosenesses[i]);
 		}
-		blendedRoomHF = Mathf.Clamp(sumRoomHF/(float)nodeParams.Length,-10000.0f,0.0f);
+		blendedRoomHF = Mathf.Clamp(sumRoomHF/(float)nodes.Length,-10000.0f,0.0f);
 
 		sumRoomLF = 0;
-		for (int i = 0; i < nodeParams.Length; i++) {
+		for (int i = 0; i < nodes.Length; i++) {
 			sumRoomLF += (nodeParams [i].roomlf*normalizedClosenesses[i]);
 		}
-		blendedRoomLF = Mathf.Clamp(sumRoomLF/(float)nodeParams.Length,-10000.0f,0.0f);
+		blendedRoomLF = Mathf.Clamp(sumRoomLF/(float)nodes.Length,-10000.0f,0.0f);
 
 		sumDecayTime = 0;
-		for (int i = 0; i < nodeParams.Length; i++) {
+		for (int i = 0; i < nodes.Length; i++) {
 			sumDecayTime += (nodeParams [i].decaytime*normalizedClosenesses[i]);
 		}
-		blendedDecayTime = Mathf.Clamp(sumDecayTime/(float)nodeParams.Length, 0.1f,20.0f);
+		blendedDecayTime = Mathf.Clamp(sumDecayTime/(float)nodes.Length, 0.1f,20.0f);
 
 		sumHFRatio = 0;
-		for (int i = 0; i < nodeParams.Length; i++) {
+		for (int i = 0; i < nodes.Length; i++) {
 			sumHFRatio += (nodeParams [i].decayhfratio*normalizedClosenesses[i]);
 		}
-		blendedHFRatio = Mathf.Clamp(sumHFRatio/(float)nodeParams.Length, 0.1f,2.0f);
+		blendedHFRatio = Mathf.Clamp(sumHFRatio/(float)nodes.Length, 0.1f,2.0f);
 
 		sumReflectionsLevel = 0;
-		for (int i = 0; i < nodeParams.Length; i++) {
+		for (int i = 0; i < nodes.Length; i++) {
 			sumReflectionsLevel += (nodeParams [i].reflectionslevel*normalizedClosenesses[i]);
 		}
-		blendedReflectionsLevel = Mathf.Clamp(sumReflectionsLevel/(float)nodeParams.Length, -10000.0f,1000f);
+		blendedReflectionsLevel = Mathf.Clamp(sumReflectionsLevel/(float)nodes.Length, -10000.0f,1000f);
 
 		sumReflectionsDelay = 0;
-		for (int i = 0; i < nodeParams.Length; i++) {
+		for (int i = 0; i < nodes.Length; i++) {
 			sumReflectionsDelay += (nodeParams [i].reflectionsdelay*normalizedClosenesses[i]);
 		}
-		blendedReflectionsDelay = Mathf.Clamp(sumReflectionsDelay/(float)nodeParams.Length,-10000.0f,2000.0f);
+		blendedReflectionsDelay = Mathf.Clamp(sumReflectionsDelay/(float)nodes.Length,-10000.0f,2000.0f);
 
 		sumReverbLevel = 0;
-		for (int i = 0; i < nodeParams.Length; i++) {
+		for (int i = 0; i < nodes.Length; i++) {
 			sumReverbLevel += (nodeParams [i].reverblevel*normalizedClosenesses[i]);
 		}
-		blendedReverbLevel = Mathf.Clamp(sumReverbLevel/(float)nodeParams.Length,-10000f,2000f);
+		blendedReverbLevel = Mathf.Clamp(sumReverbLevel/(float)nodes.Length,-10000f,2000f);
 
 		sumReverbDelay = 0;
-		for (int i = 0; i < nodeParams.Length; i++) {
+		for (int i = 0; i < nodes.Length; i++) {
 			sumReverbDelay += (nodeParams [i].reverbdelay*normalizedClosenesses[i]);
 		}
-		blendedReverbDelay = Mathf.Clamp(sumReverbDelay/(float)nodeParams.Length,0.0f,0.1f);
+		blendedReverbDelay = Mathf.Clamp(sumReverbDelay/(float)nodes.Length,0.0f,0.1f);
 
 		sumHFReference = 0;
-		for (int i = 0; i < nodeParams.Length; i++) {
+		for (int i = 0; i < nodes.Length; i++) {
 			sumHFReference += (nodeParams [i].hfreference*normalizedClosenesses[i]);
 		}
-		blendedHFReference = Mathf.Clamp(sumHFReference/(float)nodeParams.Length,1000f,20000f);
+		blendedHFReference = Mathf.Clamp(sumHFReference/(float)nodes.Length,1000f,20000f);
 
 		sumLFReference = 0;
-		for (int i = 0; i < nodeParams.Length; i++) {
+		for (int i = 0; i < nodes.Length; i++) {
 			sumLFReference += (nodeParams [i].lfreference*normalizedClosenesses[i]);
 		}
-		blendedLFReference = Mathf.Clamp(sumLFReference/(float)nodeParams.Length,20f,1000f);
+		blendedLFReference = Mathf.Clamp(sumLFReference/(float)nodes.Length,20f,1000f);
 
 		sumDiffusion = 0;
-		for (int i = 0; i < nodeParams.Length; i++) {
+		for (int i = 0; i < nodes.Length; i++) {
 			sumDiffusion += (nodeParams [i].diffusion*normalizedClosenesses[i]);
 		}
-		blendedDiffusion = Mathf.Clamp(sumDiffusion/(float)nodeParams.Length,0.0f,100f);
+		blendedDiffusion = Mathf.Clamp(sumDiffusion/(float)nodes.Length,0.0f,100f);
 
 		sumDensity = 0;
-		for (int i = 0; i < nodeParams.Length; i++) {
+		for (int i = 0; i < nodes.Length; i++) {
 			sumDensity += (nodeParams [i].density*normalizedClosenesses[i]);
 		}
-		blendedDensity = Mathf.Clamp(sumDensity/(float)nodeParams.Length,0f,100f);
+		blendedDensity = Mathf.Clamp(sumDensity/(float)nodes.Length,0f,100f);
 	}
 
 	// Use this for initialization
@@ -226,6 +230,7 @@ public class ReverbControllerForListener : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
+
 		AssignBlendsToParams ();
 		AssignParamsToVerb ();
 		closest = FindHighestCloseness (closenesses);
@@ -241,10 +246,17 @@ public class ReverbControllerForListener : MonoBehaviour {
 				(Vector3.Distance (nodes [i].transform.position, 
 					target.transform.position));
 		}
+		for (int i = nodes.Length; i < closenesses.Length; i++) {
+			closenesses [i] = 0;
+		}
 
 		//normalize values
-		for (int i = 0; i < closenesses.Length; i++) {
+		for (int i = 0; i < nodes.Length; i++) {
 			normalizedClosenesses [i] = (closenesses [i] - farthest) / (closest - farthest);
 		}
+		for (int i = nodes.Length; i < closenesses.Length; i++) {
+			normalizedClosenesses [i] = 0;
+		}
+
 	}
 }

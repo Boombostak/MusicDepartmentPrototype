@@ -13,6 +13,9 @@ public class ReverNodeZoneDetectorForListener : MonoBehaviour {
 	public List<GameObject> activeNodes;
 	public ReverbControllerForListener targetController;
 	public List<ReverbNodeZone> zonesCurrentlyInsideOf;
+	public bool playerIsInside;
+	public bool playerIsOutside;
+	public ReverbControllerForListener RCFL;
 	// Use this for initialization
 	void Start () {
 		target = this.gameObject;
@@ -29,13 +32,16 @@ public class ReverNodeZoneDetectorForListener : MonoBehaviour {
 	void OnTriggerEnter(Collider other){
 		
 		rnz = other.gameObject.GetComponent<ReverbNodeZone> ();
-		zonesCurrentlyInsideOf.Add (rnz);
+		zonesCurrentlyInsideOf.Insert(0,rnz);
+		playerIsInside = rnz.inside;
+		playerIsOutside = rnz.outside;
 		if (rnz.isExclusive) {
-			activeNodes = rnz.nodeList;
-		} 
-		else {
-			activeNodes.AddRange(rnz.nodeList.Except(activeNodes));
-			foreach (var node in rnz.associatedNodes) {
+			activeNodes = zonesCurrentlyInsideOf[0].nodeList;
+		} else {
+			activeNodes.AddRange (rnz.nodeList.Except (activeNodes));
+
+			activeNodes.AddRange (rnz.nodeList);
+			/*foreach (var node in rnz.associatedNodes) {
 				activeNodes.Remove (node);
 			}
 		}
@@ -46,27 +52,43 @@ public class ReverNodeZoneDetectorForListener : MonoBehaviour {
 					activeNodes.Remove (node);
 				}
 			}
+		}*/
+			
 		}
-		targetController.nodes = activeNodes.ToArray();
+		targetController.nodes = activeNodes.ToArray ();
 	}
 
 
 	void OnTriggerExit(Collider other){
+		
 		rnz = other.gameObject.GetComponent<ReverbNodeZone> ();
 		zonesCurrentlyInsideOf.Remove (rnz);
-		if (rnz.linkedZones!=null) {
+		/*if (rnz.linkedZones!=null) {
 			foreach (var zone in zonesCurrentlyInsideOf) {
-				//NEED TO ACCOUNT FOR LINKED ZONES WHEN EXITING!
+					if (rnz.linkedZones.Contains(zone)) {
+						//do nothing
+					} else {
+					foreach (var node in rnz.nodeList) {
+						activeNodes.Remove (node);
+				}
+				}
 			}
+		} else {
+		//	*///foreach (var node in rnz.nodeList) {
+		//activeNodes.Remove (node);
+		activeNodes = zonesCurrentlyInsideOf[0].nodeList;
+
+
+
+		targetController.nodes = activeNodes.ToArray ();
+		if (zonesCurrentlyInsideOf.Count==1) {
+			playerIsInside=false;
 		}
-		foreach (var node in rnz.nodeList) {
-			activeNodes.Remove (node);
-		}
-		targetController.nodes = activeNodes.ToArray();
-		if (activeNodes.Count ==0) {
-			activeNodes.AddRange( rnz.associatedNodes);
-		}
-		this.transform.position+= Vector3.zero; //retrigger overlapping trigger colliders?
+		/*if (activeNodes.Count == 0) {
+			activeNodes.AddRange (rnz.associatedNodes);
+		}*/
+	
+		//this.transform.position+= Vector3.zero; //retrigger overlapping trigger colliders?
 	}
 
 }
