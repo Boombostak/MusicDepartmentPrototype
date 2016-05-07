@@ -11,5 +11,5 @@ AudioManager:
   m_DSPBufferSize: 512
   m_VirtualVoiceCount: 512
   m_RealVoiceCount: 32
-  m_SpatializerPlugin: 3Dception
+  m_SpatializerPlugin: 
   m_DisableAudio: 0
