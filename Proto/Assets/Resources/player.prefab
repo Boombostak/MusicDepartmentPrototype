@@ -81,6 +81,8 @@ GameObject:
   - 54: {fileID: 5418022}
   - 114: {fileID: 11492502}
   - 65: {fileID: 6568710}
+  - 114: {fileID: 11466034}
+  - 169: {fileID: 16979792}
   m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -119,7 +121,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 111676}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -219.56195, y: 2.000003, z: -160.37659}
+  m_LocalPosition: {x: 16.829956, y: 0.4999962, z: 97.98218}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 467716}
@@ -508,6 +510,20 @@ MonoBehaviour:
   minimumY: -90
   maximumY: 90
   frameCounter: 3
+--- !u!114 &11466034
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 178932}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b513c26439980a340a4ca64d3dca02a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listener: {fileID: 8170588}
+  lopass: {fileID: 16979792}
+  sources: []
 --- !u!114 &11480208
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -600,18 +616,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   rnz: {fileID: 0}
-  exteriorNodes:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   activeNodes: []
   targetController: {fileID: 11489114}
+  zonesCurrentlyInsideOf: []
 --- !u!114 &11496720
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -650,8 +657,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character_controller: {fileID: 14316142}
-  move_speed: 0.4
-  rotate_speed: 0.4
+  move_speed: 40
+  rotate_speed: 40
   beepclip: {fileID: 8300000, guid: f6889daa82f200a41971d2710d51d627, type: 3}
   source: {fileID: 8265268}
   micclip: {fileID: 0}
@@ -737,6 +744,26 @@ AudioReverbFilter:
   m_LFReference: 250
   m_ReflectionsDelay: 0
   m_ReverbPreset: 27
+--- !u!169 &16979792
+AudioLowPassFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 178932}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_LowpassResonanceQ: 1
+  lowpassLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0.77272725
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

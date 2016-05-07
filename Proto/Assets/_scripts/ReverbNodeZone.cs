@@ -7,6 +7,10 @@ public class ReverbNodeZone : MonoBehaviour {
 	public Collider activeCollider;
 	public List<GameObject> nodeList;
 	public static GameObject[] allNodes;
+	public Collider[] colliders;
+	public bool isExclusive;
+	public List<GameObject> associatedNodes;
+	public ReverbNodeZone[] linkedZones;
 
 	//USE ONTRIGGERSTAY!!! Test if the player is staying in the trigger and adjust accordingly.
 
@@ -16,12 +20,22 @@ public class ReverbNodeZone : MonoBehaviour {
 
 	public void CalculateAssociatedNodes(){
 		int count;
-		for (int i = 0; i < allNodes.Length; i++) {
-			if (activeCollider.bounds.Contains(allNodes[i].transform.position)) {
-				nodeList.Add (allNodes [i]);
+		if (isExclusive) {
+			nodeList.AddRange (associatedNodes);
+		}
+			if (!isExclusive) {
+			for (int i = 0; i < allNodes.Length; i++) {
+
+				if (activeCollider.bounds.Contains (allNodes [i].transform.position)
+					&& !associatedNodes.Contains(allNodes [i])) {
+					nodeList.Add (allNodes[i]);
+
+				}
+			}
+
 			}
 		}
-	}
+
 
 	// Use this for initialization
 	void Start () {

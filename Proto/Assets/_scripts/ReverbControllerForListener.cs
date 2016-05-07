@@ -233,18 +233,6 @@ public class ReverbControllerForListener : MonoBehaviour {
 		BlendNodeParams ();
 
 
-		/*if (hitToTestInside.collider.bounds.Contains(target.gameObject.transform.position))
-		{
-			isInside = true;
-		}
-		else
-		{
-			isInside = false;
-		}*/
-
-		//update positions (should this be a coroutine?)
-
-
 		for (int i = 0; i < nodes.Length; i++) {
 			closenesses [i] =
 

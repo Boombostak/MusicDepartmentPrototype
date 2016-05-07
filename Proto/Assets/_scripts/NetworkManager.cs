@@ -36,7 +36,7 @@ public class NetworkManager : MonoBehaviour {
 
     void OnJoinedRoom()
     {
-        PhotonNetwork.Instantiate("player", spawnpoints[playerCount].transform.position, Quaternion.identity, 0);
+		PhotonNetwork.Instantiate("player", spawnpoints[playerCount].transform.position, spawnpoints[playerCount].transform.rotation, 0);
         lobbyCam.gameObject.SetActive(false);
         playerCount = CountPlayers();
         Debug.Log("playercount:" + playerCount);

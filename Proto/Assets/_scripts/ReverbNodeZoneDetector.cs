@@ -8,7 +8,8 @@ public class ReverbNodeZoneDetector : MonoBehaviour {
 	//PUT THIS ON THINGS THAT MAKE SOUNDS
 
 	public GameObject target;
-	public ReverbNodeZone rnz;
+	public ReverbNodeZone current_rnz;
+	public ReverbNodeZone previous_rnz;
 	public List<GameObject> activeNodes;
 	public ReverbController targetController;
 	// Use this for initialization
@@ -17,17 +18,30 @@ public class ReverbNodeZoneDetector : MonoBehaviour {
 		targetController = target.GetComponent<ReverbController> ();
 	}
 	
-	void OnTriggerStay(Collider other){
+	/*void OnTriggerStay(Collider other){
 		Debug.Log ("triggerstay");
 		rnz = other.gameObject.GetComponent<ReverbNodeZone> ();
 		//activeNodes = new GameObject[rnz.nodeList.Count];
 		activeNodes = rnz.nodeList;
-	}
+	}*/
 	void OnTriggerEnter(Collider other){
-		Debug.Log ("triggerenter");
-		rnz = other.gameObject.GetComponent<ReverbNodeZone> ();
+		//Debug.Log ("triggerenter");
+		current_rnz = other.gameObject.GetComponent<ReverbNodeZone> ();
 		//activeNodes = new GameObject[rnz.nodeList.Count];
-		activeNodes = rnz.nodeList;
+		if (current_rnz.isExclusive) {
+			activeNodes.Clear ();
+		}
+		activeNodes.AddRange(current_rnz.nodeList);
 		targetController.nodes = activeNodes.ToArray();
+
 	}
-}
+	void OnTriggerExit(Collider other){
+		current_rnz = other.gameObject.GetComponent<ReverbNodeZone> ();
+		foreach (var node in current_rnz.nodeList) {
+			activeNodes.Remove (node);
+		}
+		targetController.nodes = activeNodes.ToArray();
+		}
+
+	}
+
