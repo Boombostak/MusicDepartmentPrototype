@@ -5,7 +5,8 @@ public class AdhanController : MonoBehaviour {
 
     public GameObject sun;
     public bool sunBelowHorizon;
-    public AudioSource adhanSource;
+	public AudioSource adhanSource;
+	public AudioClip[] clips;
     public TOD_Sky sky;
 	public ReverNodeZoneDetectorForListener RNZDFL;
 	public AudioLowPassFilter filter;
@@ -83,6 +84,6 @@ public class AdhanController : MonoBehaviour {
 
     void CallToPrayer()
     {
-        adhanSource.Play();
+		adhanSource.PlayOneShot (clips[Random.Range(0,clips.Length)]);
     }
 }
