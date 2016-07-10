@@ -20,7 +20,7 @@ public class AdultSuraController : MonoBehaviour {
 			clipRandomizer.PlayAClipWithRandomDelay ();
 			isPlaying = true;
 		}
-		if (!audioSource.isPlaying) {
+		if (audioSource.isPlaying == false) {
 			isPlaying = false;
 		}
 	}

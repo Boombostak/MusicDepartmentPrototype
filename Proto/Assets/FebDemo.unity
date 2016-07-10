@@ -41,7 +41,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_LightmapsMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -55,13 +55,14 @@ LightmapSettings:
   m_LightmapEditorSettings:
     serializedVersion: 3
     m_Resolution: 16
-    m_BakeResolution: 40
+    m_BakeResolution: 16
     m_TextureWidth: 1024
     m_TextureHeight: 1024
     m_AOMaxDistance: 5
     m_Padding: 2
     m_CompAOExponent: 0.7
-    m_LightmapParameters: {fileID: 0}
+    m_LightmapParameters: {fileID: 15201, guid: 0000000000000000f000000000000000,
+      type: 0}
     m_TextureCompression: 1
     m_FinalGather: 1
     m_FinalGatherRayCount: 1024
@@ -371,7 +372,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.31
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1637,7 +1638,7 @@ MonoBehaviour:
   TC: {fileID: 0}
   todsky: {fileID: 578808361}
   todanim: {fileID: 897030776}
-  waitTime: 60
+  waitTime: 3600
   perc: 0
   elapsedTime: 0
   cloudSnapshot:
@@ -2372,14 +2373,14 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.328
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   Priority: 128
   DopplerLevel: 0
-  MinDistance: 15
+  MinDistance: 4.9382057
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -4440,6 +4441,8 @@ MonoBehaviour:
   asrWasCalled: 0
   maghribWasCalled: 0
   ishaWasCalled: 0
+  fadeOutOtherSound: 0
+  fadeTime: 3
 --- !u!4 &895544264
 Transform:
   m_ObjectHideFlags: 0
@@ -4820,7 +4823,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.31
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -7019,7 +7022,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.31
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -8434,7 +8437,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.31
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
