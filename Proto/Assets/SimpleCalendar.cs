@@ -12,7 +12,8 @@ public class SimpleCalendar : MonoBehaviour {
 
 	public void CheckDay ()
 	{
-		text.text = Sky.Cycle.DateTime.DayOfWeek.ToString ();;
+		dotw = Sky.Cycle.DateTime.DayOfWeek.ToString ();
+		text.text = dotw;
 	}
 
 	void Update ()

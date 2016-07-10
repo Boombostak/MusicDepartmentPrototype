@@ -16,11 +16,11 @@ public class HatipHafiz : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (adhanController.asrWasCalled && !isPlaying) {
-			clipRandomizer.PlayAClip ();
+			clipRandomizer.PlayAClipWithRandomDelay ();
 			isPlaying = true;
 		}
 		if (adhanController.maghribWasCalled && !isPlaying) {
-			clipRandomizer.PlayAClip ();
+			clipRandomizer.PlayAClipWithRandomDelay ();
 			isPlaying = true;
 		}
 		if (!audioSource.isPlaying) {

@@ -48,13 +48,13 @@ public class TimeControl : MonoBehaviour {
         {
             tod_time.DayLengthInMinutes= tod_time.DayLengthInMinutes * 2;
 			timeMultiplier /= 2;
-			Debug.Log (static_TimeMultiplier);
+			Debug.Log ("One real second equals" +1/static_TimeMultiplier+"game seconds");
         }
         if (Input.GetKeyDown("e"))
         {
             tod_time.DayLengthInMinutes= tod_time.DayLengthInMinutes / 2;
 			timeMultiplier *= 2;
-			Debug.Log (static_TimeMultiplier);
+			Debug.Log ("One real second equals" +1/static_TimeMultiplier+"game seconds");
         }
 
 		static_TimeMultiplier = timeMultiplier;

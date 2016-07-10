@@ -6,10 +6,12 @@ public class AdhanController : MonoBehaviour {
     public GameObject sun;
     public bool sunBelowHorizon;
 	public AudioSource adhanSource;
-	public AudioClip[] clips;
+	public AudioClip[] adhanClips;
+	public AudioClip[] fajrClips;
     public TOD_Sky sky;
 	public ReverNodeZoneDetectorForListener RNZDFL;
 	public AudioLowPassFilter filter;
+	public AudioSource[] sourcesToMute;
 
     public bool fajrWasCalled = false;
     public bool dhuhrWasCalled = false;
@@ -54,24 +56,30 @@ public class AdhanController : MonoBehaviour {
         if (sky.Cycle.Hour >= 12 && dhuhrWasCalled == false)
         {
             CallToPrayer();
-            dhuhrWasCalled = true;
+			fajrWasCalled = true;
+			dhuhrWasCalled = true;
         }
 
         //is it afternoon?
         if (sky.Cycle.Hour >= 15 && asrWasCalled == false)
         {
             CallToPrayer();
+			fajrWasCalled = true;
             asrWasCalled = true;
         }
 
         if (sunBelowHorizon ==true && maghribWasCalled ==false && sky.Cycle.Hour >= 12)
         {
-            CallToPrayer();maghribWasCalled = true;
+            CallToPrayer();
+			fajrWasCalled = true;
+			maghribWasCalled = true;
         }
 
         if (sky.Cycle.Hour >= 22 && ishaWasCalled==false)
         {
-            CallToPrayer(); ishaWasCalled = true;
+			CallToPrayer(); 
+			fajrWasCalled = true;
+			ishaWasCalled = true;
         }
 
         //reset at midnght
@@ -79,11 +87,37 @@ public class AdhanController : MonoBehaviour {
         {
             fajrWasCalled = false;dhuhrWasCalled = false;asrWasCalled = false;maghribWasCalled = false;ishaWasCalled = false;
 }
+		for (int i = 0; i < sourcesToMute.Length; i++) {
+			if (sourcesToMute [i].volume <= 0) {
+				sourcesToMute [i].Stop ();
+			}
+		}
 
 	}
 
     void CallToPrayer()
     {
-		adhanSource.PlayOneShot (clips[Random.Range(0,clips.Length)]);
+		StartCoroutine(FadeOutEverythingExceptAdhan());
+
+		if (!fajrWasCalled) {
+			adhanSource.clip = fajrClips [Random.Range (0, fajrClips.Length)];
+			adhanSource.Play ();
+			fajrWasCalled = true;
+		} 
+		else {
+			adhanSource.clip = adhanClips [Random.Range (0, adhanClips.Length)];
+			adhanSource.Play();
+		}
     }
-}
+
+
+
+	IEnumerator FadeOutEverythingExceptAdhan(){
+		for (int i = 0; i < sourcesToMute.Length; i++) {
+			for (float f = 1f; f >=0 ; f-=0.1f) {
+				sourcesToMute[i].volume = f;
+				yield return new WaitForSeconds(0.1f);
+				}
+			}
+		}
+	}
