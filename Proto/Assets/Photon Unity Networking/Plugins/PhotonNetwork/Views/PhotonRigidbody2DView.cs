@@ -1,14 +1,4 @@
-﻿// ----------------------------------------------------------------------------
-// <copyright file="PhotonRigidbody2DView.cs" company="Exit Games GmbH">
-//   PhotonNetwork Framework for Unity - Copyright (C) 2016 Exit Games GmbH
-// </copyright>
-// <summary>
-//   Component to synchronize 2d rigidbodies via PUN.
-// </summary>
-// <author>developer@exitgames.com</author>
-// ----------------------------------------------------------------------------
-
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
 /// <summary>

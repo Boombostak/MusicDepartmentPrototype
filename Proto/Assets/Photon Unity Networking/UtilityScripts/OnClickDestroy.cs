@@ -35,7 +35,7 @@ public class OnClickDestroy : Photon.MonoBehaviour
         }
     }
 
-    [PunRPC]
+    [RPC]
     public IEnumerator DestroyRpc()
     {
         GameObject.Destroy(this.gameObject);

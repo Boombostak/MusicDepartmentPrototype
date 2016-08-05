@@ -11,7 +11,6 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using SupportClassPun = ExitGames.Client.Photon.SupportClass;
 
 #if UNITY_WEBGL
 
@@ -137,13 +136,13 @@ namespace ExitGames.Client.Photon
             {
                 if (this.ReportDebugOfLevel(DebugLevel.ALL))
                 {
-                    this.Listener.DebugReturn(DebugLevel.ALL, "Sending: " + SupportClassPun.ByteArrayToString(data));
+                    this.Listener.DebugReturn(DebugLevel.ALL, "Sending: " + SupportClass.ByteArrayToString(data));
                 }
                 this.sock.Send(data);
             }
             catch (Exception e)
             {
-                this.Listener.DebugReturn(DebugLevel.ERROR, "Cannot send to: " + this.ServerAddress + ". " + e.Message);
+                this.Listener.DebugReturn(DebugLevel.ERROR, "Cannot send. " + e.Message);
 
                 HandleException(StatusCode.Exception);
                 return PhotonSocketError.Exception;
@@ -172,7 +171,7 @@ namespace ExitGames.Client.Photon
             }
             if (this.sock.Error != null)
             {
-                this.Listener.DebugReturn(DebugLevel.ERROR, "Exiting receive thread due to error: " + this.sock.Error + " Server: " + this.ServerAddress);
+                this.Listener.DebugReturn(DebugLevel.ERROR, "Exiting receive thread due to error: " + this.sock.Error);
 				this.HandleException(StatusCode.ExceptionOnConnect);
             }
             else
@@ -186,7 +185,7 @@ namespace ExitGames.Client.Photon
 				{
 					if (this.sock.Error != null)
 					{
-						this.Listener.DebugReturn(DebugLevel.ERROR, "Exiting receive thread (inside loop) due to error: " + this.sock.Error + " Server: " + this.ServerAddress);
+						this.Listener.DebugReturn(DebugLevel.ERROR, "Exiting receive thread (inside loop) due to error: " + this.sock.Error);
 						this.HandleException(StatusCode.ExceptionOnReceive);
 						break;
 					}
@@ -201,7 +200,7 @@ namespace ExitGames.Client.Photon
 
 						if (this.ReportDebugOfLevel(DebugLevel.ALL))
 						{
-							this.Listener.DebugReturn(DebugLevel.ALL, "TCP << " + inBuff.Length + " = " + SupportClassPun.ByteArrayToString(inBuff));
+							this.Listener.DebugReturn(DebugLevel.ALL, "TCP << " + inBuff.Length + " = " + SupportClass.ByteArrayToString(inBuff));
 						}
 
 
@@ -217,7 +216,7 @@ namespace ExitGames.Client.Photon
 							{
 								if (this.ReportDebugOfLevel(DebugLevel.ERROR))
 								{
-									this.EnqueueDebugReturn(DebugLevel.ERROR, "Receive issue. State: " + this.State + ". Server: '" + this.ServerAddress + "' Exception: " + e);
+									this.EnqueueDebugReturn(DebugLevel.ERROR, "Receive issue. State: " + this.State + " Exception: " + e);
 								}
 								this.HandleException(StatusCode.ExceptionOnReceive);
 							}
@@ -235,7 +234,7 @@ namespace ExitGames.Client.Photon
 							{
 								if (this.ReportDebugOfLevel(DebugLevel.ERROR))
 								{
-									this.EnqueueDebugReturn(DebugLevel.ERROR, "Receive issue. State: " + this.State + ". Server: '" + this.ServerAddress + "' Exception: " + e);
+									this.EnqueueDebugReturn(DebugLevel.ERROR, "Receive issue. State: " + this.State + " Exception: " + e);
 								}
 								this.HandleException(StatusCode.ExceptionOnReceive);
 							}
