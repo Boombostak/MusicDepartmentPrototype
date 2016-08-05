@@ -121,7 +121,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 111676}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.829956, y: 0.4999962, z: 97.98218}
+  m_LocalPosition: {x: -367.95197, y: 9.216339, z: 278.23453}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 467716}
@@ -158,7 +158,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 1500
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -557,6 +557,10 @@ MonoBehaviour:
   nodeParams: []
   target: {fileID: 0}
   isInside: 0
+  activeNodes: []
+  activeClosenesses: []
+  activeNormalizedClosenesses: []
+  activeNodeParams: []
   sumDryLevel: 0
   blendedDryLevel: 0
   sumRoom: 0
@@ -619,6 +623,9 @@ MonoBehaviour:
   activeNodes: []
   targetController: {fileID: 11489114}
   zonesCurrentlyInsideOf: []
+  playerIsInside: 0
+  playerIsOutside: 0
+  RCFL: {fileID: 0}
 --- !u!114 &11496720
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -658,10 +665,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character_controller: {fileID: 14316142}
   move_speed: 40
+  slowMoveSpeed: 40
+  fastMoveSpeed: 160
   rotate_speed: 40
   beepclip: {fileID: 8300000, guid: f6889daa82f200a41971d2710d51d627, type: 3}
   source: {fileID: 8265268}
   micclip: {fileID: 0}
+  playercam: {fileID: 0}
+  fovTime: 3
+  fovElapsedTime: 0
+  playerIsMoving: 0
 --- !u!124 &12435190
 Behaviour:
   m_ObjectHideFlags: 1

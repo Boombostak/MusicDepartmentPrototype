@@ -24,7 +24,7 @@ public class MoonPhaseCalculator : MonoBehaviour
     void Update()
     {
         angle = AngleSigned(sun.transform.position,moon.transform.position,Vector3.zero);
-        text.text = angle.ToString();
+        text.text = "Sun/Moon angle " + angle.ToString();
         MoonVisibility();
         Distance();
     }

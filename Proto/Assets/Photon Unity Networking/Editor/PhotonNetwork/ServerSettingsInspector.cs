@@ -1,3 +1,13 @@
+// ----------------------------------------------------------------------------
+// <copyright file="ServerSettingsInspector.cs" company="Exit Games GmbH">
+//   PhotonNetwork Framework for Unity - Copyright (C) 2016 Exit Games GmbH
+// </copyright>
+// <summary>
+//   This is a custom editor for the ServerSettings scriptable object.
+// </summary>
+// <author>developer@exitgames.com</author>
+// ----------------------------------------------------------------------------
+
 using System;
 using ExitGames.Client.Photon;
 using UnityEditor;
@@ -19,7 +29,7 @@ public class ServerSettingsInspector : Editor
     public override void OnInspectorGUI()
     {
         ServerSettings settings = (ServerSettings) target;
-
+        Undo.RecordObject(settings, "Edit PhotonServerSettings");
 
         settings.HostType = (ServerSettings.HostingOption) EditorGUILayout.EnumPopup("Hosting", settings.HostType);
         EditorGUI.indentLevel = 1;
@@ -36,7 +46,7 @@ public class ServerSettingsInspector : Editor
                 else
                 {
                     CloudRegionFlag valRegions = (CloudRegionFlag)EditorGUILayout.EnumMaskField("Enabled Regions", settings.EnabledRegions);
-                    
+
                     if (valRegions != settings.EnabledRegions)
                     {
                         settings.EnabledRegions = valRegions;
@@ -121,6 +131,22 @@ public class ServerSettingsInspector : Editor
                 break;
         }
 
+        EditorGUI.indentLevel = 0;
+        EditorGUILayout.LabelField("Client Settings");
+        EditorGUI.indentLevel = 1;
+        //EditorGUILayout.LabelField("game version");
+        settings.JoinLobby = EditorGUILayout.Toggle("Auto-Join Lobby", settings.JoinLobby);
+        settings.EnableLobbyStatistics = EditorGUILayout.Toggle("Enable Lobby Stats", settings.EnableLobbyStatistics);
+        //EditorGUILayout.LabelField("automaticallySyncScene");
+        //EditorGUILayout.LabelField("autoCleanUpPlayerObjects");
+        //EditorGUILayout.LabelField("log level");
+        //EditorGUILayout.LabelField("lobby stats");
+        //EditorGUILayout.LabelField("sendrate / serialize rate");
+        //EditorGUILayout.LabelField("quick resends");
+        //EditorGUILayout.LabelField("max resends");
+        //EditorGUILayout.LabelField("enable crc checking");
+
+
         if (PhotonEditor.CheckPunPlus())
         {
             settings.Protocol = ConnectionProtocol.Udp;
@@ -160,7 +186,7 @@ public class ServerSettingsInspector : Editor
 
         if (GUI.changed)
         {
-            EditorUtility.SetDirty(target);
+            EditorUtility.SetDirty(target);     // even in Unity 5.3+ it's OK to SetDirty() for non-scene objects. 
         }
     }
 
