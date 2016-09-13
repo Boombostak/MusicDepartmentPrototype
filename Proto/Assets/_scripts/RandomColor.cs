@@ -8,7 +8,7 @@ public class RandomColor : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        randomColor = new Color(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), 0.24f);
+        randomColor = new Color(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), 0.60f);
         this.GetComponent<MeshRenderer>().material.SetColor("_Color", randomColor);
 	}
 	

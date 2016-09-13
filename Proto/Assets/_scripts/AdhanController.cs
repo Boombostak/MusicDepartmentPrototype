@@ -100,18 +100,17 @@ public class AdhanController : MonoBehaviour {
 		}
 	}
 
-    void CallToPrayer()
-    {
+    void CallToPrayer ()
+	{
 		fadeOutOtherSound = true;
 
 		if (!fajrWasCalled) {
 			adhanSource.clip = fajrClips [Random.Range (0, fajrClips.Length)];
 			adhanSource.Play ();
 			fajrWasCalled = true;
-		}
-		else {
+		} else {
 			adhanSource.clip = adhanClips [Random.Range (0, adhanClips.Length)];
-			adhanSource.Play();
+			adhanSource.Play ();
 		}
-    }
+	}
 }

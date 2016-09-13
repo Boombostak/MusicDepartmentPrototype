@@ -12,6 +12,7 @@ public class NetworkManager : MonoBehaviour {
     public GameObject[] spawnpoints;
     public int playerCount;
     public static int numberOfPlayers;
+	public float connectionCountDown;
 
     // Use this for initialization
     void Start()
@@ -51,8 +52,11 @@ public class NetworkManager : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        connectionText.text = PhotonNetwork.connectionStateDetailed.ToString();
-		if (PhotonNetwork.connected == false) {
+		if (connectionCountDown>=0) {
+			connectionCountDown -= Time.deltaTime;	
+		}
+		connectionText.text = PhotonNetwork.connectionStateDetailed.ToString();
+		if (PhotonNetwork.connected == false && connectionCountDown<=0) {
 			PhotonNetwork.offlineMode = true;
 			PhotonNetwork.CreateRoom("some name");
 		}
