@@ -13,6 +13,7 @@ public class NetworkManager : MonoBehaviour {
     public int playerCount;
     public static int numberOfPlayers;
 	public float connectionCountDown;
+	public bool aPlayerHasSpawned = false;
 
     // Use this for initialization
     void Start()
@@ -42,6 +43,13 @@ public class NetworkManager : MonoBehaviour {
         playerCount = CountPlayers();
         Debug.Log("playercount:" + playerCount);
     }
+
+	void OnCreatedRoom()
+	{
+		Debug.Log ("created a room");
+		aPlayerHasSpawned = true;
+		GameObject.FindObjectOfType<PlayerInput> ().GetComponent<SuperUser> ().isSuperUser = true;
+	}
 
     public int CountPlayers()
     {

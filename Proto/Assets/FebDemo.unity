@@ -272,6 +272,35 @@ MeshCollider:
 GameObject:
   m_PrefabParentObject: {fileID: 111444, guid: a7c7a490159863c4385443016cb1bde4, type: 2}
   m_PrefabInternal: {fileID: 344391391}
+--- !u!4 &67536523 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 407262, guid: a7c7a490159863c4385443016cb1bde4, type: 2}
+  m_PrefabInternal: {fileID: 344391391}
+--- !u!114 &67536524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 67536522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  prefixBackup: -1
+  observed: {fileID: 0}
+  synchronization: 3
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 67536523}
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 6
+  instantiationId: 6
+  isRuntimeInstantiated: 0
 --- !u!1 &74157619
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,6 +390,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2d06070e86a347a49bd3b9597e33696b, type: 3}
   audiosource: {fileID: 74157623}
   clip: {fileID: 0}
+  timecontrol: {fileID: 0}
 --- !u!82 &74157623
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1175,6 +1205,7 @@ MonoBehaviour:
   - {fileID: 1207212833}
   playerCount: 0
   connectionCountDown: 30
+  aPlayerHasSpawned: 0
 --- !u!1 &230904439
 GameObject:
   m_ObjectHideFlags: 0
@@ -1629,6 +1660,7 @@ MonoBehaviour:
   - 0
   - 0
   - 0
+  timecontrol: {fileID: 0}
 --- !u!4 &276036839
 Transform:
   m_ObjectHideFlags: 0
@@ -2405,6 +2437,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2d06070e86a347a49bd3b9597e33696b, type: 3}
   audiosource: {fileID: 403194599}
   clip: {fileID: 0}
+  timecontrol: {fileID: 0}
 --- !u!82 &403194599
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2650,6 +2683,45 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
+--- !u!1 &444232803
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 444232805}
+  - 114: {fileID: 444232804}
+  m_Layer: 0
+  m_Name: TimeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &444232804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 444232803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eae78840c4e610646af71890361dbb96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &444232805
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 444232803}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 27
 --- !u!1001 &454860318
 Prefab:
   m_ObjectHideFlags: 0
@@ -5193,6 +5265,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2d06070e86a347a49bd3b9597e33696b, type: 3}
   audiosource: {fileID: 981247167}
   clip: {fileID: 0}
+  timecontrol: {fileID: 0}
 --- !u!82 &981247167
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7830,6 +7903,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d405fbf910791b44fb5ea829ead4fb04, type: 3}
   audiosource: {fileID: 1524896533}
   clip: {fileID: 0}
+  timecontrol: {fileID: 0}
 --- !u!82 &1524896533
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8030,6 +8104,39 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 436912, guid: 01c446cab6a9e634b9c5e175c28869be, type: 2}
   m_PrefabInternal: {fileID: 1582157503}
+--- !u!1 &1595982439 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 180030, guid: a7c7a490159863c4385443016cb1bde4, type: 2}
+  m_PrefabInternal: {fileID: 344391391}
+--- !u!4 &1595982440 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 445412, guid: a7c7a490159863c4385443016cb1bde4, type: 2}
+  m_PrefabInternal: {fileID: 344391391}
+--- !u!114 &1595982441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1595982439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  prefixBackup: -1
+  observed: {fileID: 0}
+  synchronization: 3
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 1595982440}
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 4
+  instantiationId: 4
+  isRuntimeInstantiated: 0
 --- !u!1 &1606876331
 GameObject:
   m_ObjectHideFlags: 0
@@ -8719,6 +8826,35 @@ MeshCollider:
 --- !u!1 &1756239718 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 179136, guid: a7c7a490159863c4385443016cb1bde4, type: 2}
+  m_PrefabInternal: {fileID: 344391391}
+--- !u!114 &1756239719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1756239718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  prefixBackup: -1
+  observed: {fileID: 0}
+  synchronization: 3
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 1756239721}
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 5
+  instantiationId: 5
+  isRuntimeInstantiated: 0
+--- !u!4 &1756239721 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 431250, guid: a7c7a490159863c4385443016cb1bde4, type: 2}
   m_PrefabInternal: {fileID: 344391391}
 --- !u!1 &1756625856
 GameObject:
@@ -9884,6 +10020,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: eaea8c7f67c1f2e4ba1f9bf20888d075, type: 3}
   audiosource: {fileID: 2015710334}
   clip: {fileID: 0}
+  timecontrol: {fileID: 0}
 --- !u!82 &2015710334
 AudioSource:
   m_ObjectHideFlags: 0
