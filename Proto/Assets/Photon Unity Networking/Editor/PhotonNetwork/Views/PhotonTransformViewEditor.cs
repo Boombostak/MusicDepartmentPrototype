@@ -1,26 +1,10 @@
-﻿// ----------------------------------------------------------------------------
-// <copyright file="PhotonTransformViewEditor.cs" company="Exit Games GmbH">
-//   PhotonNetwork Framework for Unity - Copyright (C) 2016 Exit Games GmbH
-// </copyright>
-// <summary>
-//   This is a custom editor for the TransformView component.
-// </summary>
-// <author>developer@exitgames.com</author>
-// ----------------------------------------------------------------------------
-
-
-#if UNITY_5 && !UNITY_5_0 && !UNITY_5_1 && !UNITY_5_2
-#define UNITY_MIN_5_3
-#endif
-
-
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
 
 [CustomEditor(typeof (PhotonTransformView))]
 public class PhotonTransformViewEditor : Editor
 {
-    //private PhotonTransformView m_Target;
+    private PhotonTransformView m_Target;
 
     private SerializedProperty m_SynchronizePositionProperty;
     private SerializedProperty m_SynchronizeRotationProperty;
@@ -62,9 +46,7 @@ public class PhotonTransformViewEditor : Editor
 
     public override void OnInspectorGUI()
     {
-		serializedObject.Update ();
-
-        //this.m_Target = (PhotonTransformView) target;
+        this.m_Target = (PhotonTransformView) target;
 
         DrawIsPlayingWarning();
         GUI.enabled = !Application.isPlaying;
@@ -427,8 +409,9 @@ public class PhotonTransformViewEditor : Editor
 
         if (newValue != property.boolValue)
         {
+            Undo.RecordObject(this.m_Target, "Change " + label);
             property.boolValue = newValue;
-            property.serializedObject.ApplyModifiedProperties();
+            EditorUtility.SetDirty(this.m_Target);
         }
     }
 }

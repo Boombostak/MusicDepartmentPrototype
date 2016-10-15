@@ -53,7 +53,6 @@ GameObject:
   - 114: {fileID: 11491886}
   - 54: {fileID: 5417670}
   - 114: {fileID: 11469434}
-  - 114: {fileID: 11412068}
   m_Layer: 8
   m_Name: player
   m_TagString: Player
@@ -436,18 +435,6 @@ MonoBehaviour:
   DomePosOffset: {x: 0, y: 0, z: 0}
   DomeScaleToFarClip: 1
   DomeScaleFactor: 0.95
---- !u!114 &11412068
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 111676}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f33846325aeeb4147bcc096ff0ce9f7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isSuperUser: 0
 --- !u!114 &11423956
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -785,7 +772,6 @@ MonoBehaviour:
   tod_time: {fileID: 0}
   speedingUp: 0
   slowingDown: 0
-  nm: {fileID: 0}
 --- !u!114 &11492502
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -830,7 +816,6 @@ MonoBehaviour:
   - {fileID: 5417670}
   - {fileID: 13522180}
   - {fileID: 11469434}
-  - {fileID: 11491886}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1

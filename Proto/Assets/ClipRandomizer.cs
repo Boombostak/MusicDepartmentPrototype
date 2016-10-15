@@ -6,7 +6,6 @@ public class ClipRandomizer : MonoBehaviour {
 	public AudioClip[] clips;
 	public AudioSource audiosource;
 	public AudioClip clip;
-	public TimeControl timecontrol;
 
 	public void PlayAClip(){
 		audiosource.clip = clips [Random.Range (0, clips.Length - 1)];
@@ -16,7 +15,7 @@ public class ClipRandomizer : MonoBehaviour {
 
 	public void PlayAClipWithRandomDelay(){
 		float randomFloat;
-		randomFloat = Random.Range (0f, 60f * 1/timecontrol.timeMultiplier);
+		randomFloat = Random.Range (0f, 60f * 1/TimeControl.static_TimeMultiplier);
 		audiosource.clip = clips [Random.Range (0, clips.Length - 1)];
 		audiosource.PlayDelayed (randomFloat);
 		Debug.Log ("Playback delayed by" + randomFloat);
@@ -24,7 +23,7 @@ public class ClipRandomizer : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		timecontrol = GameObject.FindObjectOfType<TimeControl> ().GetComponent<TimeControl>();
+	
 	}
 	
 	// Update is called once per frame

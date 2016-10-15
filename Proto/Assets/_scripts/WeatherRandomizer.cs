@@ -12,18 +12,16 @@ public class WeatherRandomizer : MonoBehaviour {
 	public float elapsedTime;
 	public float[] cloudSnapshot;
 	public float[] cloudRNG;
-	public TimeControl timecontrol;
 
 	// Use this for initialization
 	void Start () {
 		cloudSnapshot = new float[10];
 		cloudRNG = new float[10];
-		timecontrol = GameObject.FindObjectOfType<TimeControl> ().GetComponent <TimeControl>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		elapsedTime += Time.deltaTime * timecontrol.timeMultiplier;
+		elapsedTime += Time.deltaTime * TimeControl.static_TimeMultiplier;
 		if (elapsedTime >= (waitTime)) {
 			for (int i = 0; i < cloudSnapshot.Length; i++) {
 				cloudSnapshot [i] = cloudRNG [i];
