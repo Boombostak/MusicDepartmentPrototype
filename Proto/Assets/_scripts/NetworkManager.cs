@@ -32,7 +32,7 @@ public class NetworkManager : MonoBehaviour {
     void OnPhotonRandomJoinFailed()
     {
         Debug.Log("Can't join room!");
-        PhotonNetwork.CreateRoom("room1", true, true, 10);
+		PhotonNetwork.CreateRoom ("room1"); //("room1", true, true, 10);
     }
 
     void OnJoinedRoom()

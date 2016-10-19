@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections.Generic;
 
 /// <summary>
@@ -71,7 +71,7 @@ public class Chat : Photon.MonoBehaviour
 	}
 
 
-	[RPC]
+	[PunRPC]
 	void SendChatMessage(string text, PhotonMessageInfo info)
 	{
 		AddMessage("[Anonymous] " + text);

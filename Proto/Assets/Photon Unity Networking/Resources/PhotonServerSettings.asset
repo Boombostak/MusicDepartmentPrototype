@@ -16,8 +16,11 @@ MonoBehaviour:
   ServerAddress: 
   ServerPort: 5055
   AppID: b4d2395f-03de-4f42-9d84-773e8d151ca0
+  VoiceAppID: 
   PreferredRegion: 1
   EnabledRegions: 0
+  JoinLobby: 0
+  EnableLobbyStatistics: 0
   RpcList:
   - Chat
   - DestroyRpc
@@ -29,4 +32,11 @@ MonoBehaviour:
   - PunRespawn
   - RequestForPickupTimes
   - SendChatMessage
+  - ColorRpc
+  - DoJump
+  - Flash
+  - Marco
+  - Polo
+  - RequestForPickupItems
+  - TaggedPlayer
   DisableAutoOpenWizard: 1
