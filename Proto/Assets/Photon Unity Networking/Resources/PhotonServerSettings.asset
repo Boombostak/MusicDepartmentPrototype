@@ -19,7 +19,7 @@ MonoBehaviour:
   VoiceAppID: 
   PreferredRegion: 1
   EnabledRegions: 0
-  JoinLobby: 0
+  JoinLobby: 1
   EnableLobbyStatistics: 0
   RpcList:
   - Chat
