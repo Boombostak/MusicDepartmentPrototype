@@ -27,7 +27,7 @@ public class PlayerInput : MonoBehaviour {
 	void Update ()
 	{
 		if (character_controller.velocity.magnitude > 0) {playerIsMoving = true;} else {playerIsMoving = false;}
-		Debug.Log (fovElapsedTime + "is elapsed");
+		//Debug.Log (fovElapsedTime + "is elapsed");
 
 		Vector3 forward = Input.GetAxis ("Vertical") * transform.TransformDirection (0, 0, 1) * move_speed * Time.deltaTime;
 		//forward.y = 0; //clamps player to current y-axis

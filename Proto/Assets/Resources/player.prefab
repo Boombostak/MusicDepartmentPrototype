@@ -804,6 +804,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ownerId: 0
   group: 0
+  OwnerShipWasTransfered: 0
   prefixBackup: -1
   observed: {fileID: 0}
   synchronization: 3
@@ -816,6 +817,7 @@ MonoBehaviour:
   - {fileID: 5417670}
   - {fileID: 13522180}
   - {fileID: 11469434}
+  - {fileID: 11491886}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1

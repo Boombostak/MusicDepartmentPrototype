@@ -31,7 +31,7 @@ public class MicTest : MonoBehaviour {
     void InitMic()
     {
         devices = new string[Microphone.devices.Length];
-        Debug.Log(Microphone.devices.Length);
+        //Debug.Log(Microphone.devices.Length);
         devices = Microphone.devices;
         for (int i = 0; i < devices.Length; i++)
         {
