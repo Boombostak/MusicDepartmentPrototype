@@ -37,7 +37,10 @@ public class MicTest : MonoBehaviour {
         {
             Debug.Log(devices[i]);
         }
-        device = devices[0];
-        authorization = true;
+		if (devices.Length!=0) {
+			device = devices[0];
+			authorization = true;
+		}
+        
     }
 }

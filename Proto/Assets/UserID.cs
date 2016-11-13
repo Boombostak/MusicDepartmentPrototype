@@ -21,6 +21,7 @@ public class UserID : MonoBehaviour {
 	void Update () {
 		if (nameInputField.transform.parent.GetComponent<Canvas>().enabled == false) {
 			name.text = nameInputField.text;
+			username = nameInputField.text;
 			Cursor.visible = true;
 			Cursor.lockState = CursorLockMode.None;
 		}

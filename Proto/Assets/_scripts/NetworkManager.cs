@@ -59,6 +59,7 @@ public class NetworkManager : MonoBehaviour {
 		if (PhotonNetwork.connected == false && connectionCountDown<=0) {
 			PhotonNetwork.offlineMode = true;
 			PhotonNetwork.CreateRoom("some name");
+			Debug.Log ("Failed to connect, running offline.");
 		}
     }
 }
