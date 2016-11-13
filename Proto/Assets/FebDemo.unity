@@ -5368,6 +5368,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0.30120483
       objectReference: {fileID: 0}
+    - target: {fileID: 167392, guid: 89b4fab1e43561c4b937fa8a3eeaee64, type: 2}
+      propertyPath: m_Name
+      value: MinaretLabel
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 89b4fab1e43561c4b937fa8a3eeaee64, type: 2}
   m_IsPrefabParent: 0

@@ -14,8 +14,9 @@ public class TextPopUpAndAlignToPlayer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (NetworkManager.numberOfPlayers > 0) {
+		if (FindObjectsOfType<PlayerInput>().Length>0 && GameObject.FindObjectOfType<PlayerInput> ().enabled) {
 			playerTrans = GameObject.FindObjectOfType<PlayerInput> ().transform;
+			Debug.Log ("playertrans is" + playerTrans.name);
 		}
 		this.transform.rotation = playerTrans.rotation;
 		text = this.GetComponent<Text> ();
