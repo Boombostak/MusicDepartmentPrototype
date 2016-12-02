@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class TextPopUpAndAlignToPlayer : MonoBehaviour {
 
 	public Transform playerTrans;
+	public GameObject clientPlayer;
 	public float distanceThreshold = 200f;
 	public Text text;
 
@@ -14,13 +15,15 @@ public class TextPopUpAndAlignToPlayer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (FindObjectsOfType<PlayerInput>().Length>0 && GameObject.FindObjectOfType<PlayerInput> ().enabled) {
-			playerTrans = GameObject.FindObjectOfType<PlayerInput> ().transform;
-			Debug.Log ("playertrans is" + playerTrans.name);
+		for (int i = 0; i < FindObjectsOfType<PlayerInput>().Length; i++) {
+			if (GameObject.FindObjectsOfType<PlayerInput> ()[i].GetComponent<PhotonView> ().isMine) {
+				clientPlayer = GameObject.FindObjectsOfType<PlayerInput> () [i].gameObject;
+			}
 		}
+		playerTrans = clientPlayer.transform;
+			Debug.Log ("playertrans is" + playerTrans.name);
 		this.transform.rotation = playerTrans.rotation;
-		text = this.GetComponent<Text> ();
-
+	text = this.GetComponent<Text> ();
 	}
 	void FixedUpdate(){
 		//Debug.Log(Vector3.Distance(playerTrans.position, this.transform.position));
