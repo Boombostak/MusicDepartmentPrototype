@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Photon;
+using ExitGames.Client.Photon;
 
 public class TimeControl : MonoBehaviour {
 
@@ -10,12 +12,16 @@ public class TimeControl : MonoBehaviour {
 	public TOD_Sky tod_sky;
     //public bool speedingUp;
     //public bool slowingDown;
+	public TOD_Sky[] todskies;
+	public GameObject[] players;
     
     // Use this for initialization
 	void Start () {
         tod_time = FindObjectOfType<TOD_Time>();
 		tod_sky = FindObjectOfType<TOD_Sky> ();
 	}
+
+
 	
 	// Update is called once per frame
 	void Update () {
@@ -68,28 +74,29 @@ public class TimeControl : MonoBehaviour {
 	{
 		if (stream.isWriting)
 		{
-			stream.SendNext(tod_time.DayLengthInMinutes);
-			//stream.SendNext (tod_sky.Cycle);
+			//stream.SendNext(tod_time.DayLengthInMinutes);
+			stream.SendNext (tod_sky.Cycle.DateTime);
 			//stream.SendNext (tod_sky.Clouds);
-			stream.SendNext(timeMultiplier);
+			//stream.SendNext(timeMultiplier);
 		}
 		else
 		{
-			tod_time.DayLengthInMinutes = (float)stream.ReceiveNext();
-			//tod_sky.Cycle = (TOD_CycleParameters)stream.ReceiveNext ();
+			//tod_time.DayLengthInMinutes = (float)stream.ReceiveNext();
+			tod_sky.Cycle.DateTime = (System.DateTime)stream.ReceiveNext ();
 			//tod_sky.Clouds = (TOD_CloudParameters)stream.ReceiveNext ();
-			timeMultiplier = (float)stream.ReceiveNext();
+			//timeMultiplier = (float)stream.ReceiveNext();
 		}
+
 	}
 
-
-	//Periodically or when timemultiplier changes, send the new multiplier and time of day to all clients
-	//lerp from current value to the master value
-	/*
-	[PunRPC]
-	public void SyncTimeOfDay(PhotonMessageInfo info)
+	/*[PunRPC]
+	void SyncTime()
 	{
-		tod_time
-	}
-	*/
+		//Find player with time furthest ahead?
+		players = new GameObject[GameObject.FindObjectsOfType<MultiPlayerMover>().Length];
+		for (int i = 0; i < players.Length; i++) {
+			players [i] = GameObject.FindObjectsOfType<MultiPlayerMover> () [i];
+		}
+		//Lerp all other player times to that one
+	}*/
 }
