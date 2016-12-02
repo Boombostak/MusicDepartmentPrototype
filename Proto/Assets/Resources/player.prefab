@@ -614,6 +614,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTrans: {fileID: 0}
+  clientPlayer: {fileID: 0}
   distanceThreshold: 200
   text: {fileID: 0}
 --- !u!114 &11457074
@@ -768,10 +769,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeMultiplier: 1
-  wheelValue: 0
   tod_time: {fileID: 0}
-  speedingUp: 0
-  slowingDown: 0
+  tod_sky: {fileID: 0}
 --- !u!114 &11492502
 MonoBehaviour:
   m_ObjectHideFlags: 1
